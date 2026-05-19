@@ -215,7 +215,7 @@ export default function Home() {
       <Meteors number={30} />
 
       {/* ================= HERO SECTION ================= */}
-      <section id="hero" className="w-full max-w-7xl flex flex-col md:flex-row items-center justify-center gap-12 mt-8 md:mt-16">
+      <section id="hero" className="w-full max-w-7xl flex flex-col lg:flex-row items-center justify-center gap-12 mt-8 lg:mt-16">
         {/* Photo Section with Backlight - Spring entry with rotation */}
         <motion.div 
           className="shrink-0 shadow-[0_0_40px_rgba(124,58,237,0.2)] rounded-[2.5rem] bg-gradient-to-tr from-primary to-secondary p-1"
@@ -229,7 +229,7 @@ export default function Home() {
         </motion.div>
         
         {/* Name & Intro Section */}
-        <div className="text-center md:text-left space-y-6 flex-grow max-w-2xl">
+        <div className="text-center lg:text-left space-y-6 max-w-2xl flex-1 lg:flex-none px-4 lg:px-0">
           <motion.div 
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold text-accent border border-accent/20 bg-accent/5 backdrop-blur-md"
             initial={{ opacity: 0, scale: 0.9 }}
@@ -262,7 +262,7 @@ export default function Home() {
           </div>
 
           {/* Rotating Role Text */}
-          <div className="h-10 flex items-center justify-center md:justify-start">
+          <div className="h-10 flex items-center justify-center lg:justify-start">
             <AnimatePresence mode="wait">
               <motion.div
                 key={roleIndex}
@@ -289,7 +289,7 @@ export default function Home() {
 
           {/* CTA Action Buttons */}
           <motion.div 
-            className="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-4"
+            className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
