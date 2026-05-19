@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { PixelImage } from "@/components/ui/pixel-image";
 import { ComicText } from "@/components/ui/comic-text";
@@ -52,16 +53,16 @@ export default function Home() {
   }, []);
 
   const stats = [
-    { value: "1+ Year", label: "Learning Web Dev", color: "from-primary to-purple-500" },
-    { value: "Multiple", label: "Full Stack Projects", color: "from-cyan-500 to-secondary" },
-    { value: "Strong", label: "Frontend + Backend Foundations", color: "from-accent to-secondary" }
+    { value: "30+", label: "GitHub Repositories", color: "from-primary to-purple-500" },
+    { value: "2+ Years", label: "Building Web Apps", color: "from-cyan-500 to-secondary" },
+    { value: "Full Stack", label: "Frontend + Backend + AI", color: "from-accent to-secondary" }
   ];
 
   const quickInfos = [
     {
       icon: GraduationCap,
       title: "Education",
-      desc: "Computer Science Student",
+      desc: "B.Tech Computer Science Student",
       color: "text-primary border-primary/20 bg-primary/5"
     },
     {
@@ -73,13 +74,13 @@ export default function Home() {
     {
       icon: BookOpen,
       title: "Current Learning",
-      desc: "Next.js, Advanced React, System Design",
+      desc: "Next.js, TypeScript, AI Integration",
       color: "text-accent border-accent/20 bg-accent/5"
     },
     {
       icon: Zap,
       title: "Interests",
-      desc: "Web Apps, UI Engineering, Backend Systems",
+      desc: "SaaS Products, AI Apps, Open Source",
       color: "text-yellow-500 border-yellow-500/20 bg-yellow-500/5"
     }
   ];
@@ -87,71 +88,85 @@ export default function Home() {
   const skillCategories = [
     {
       icon: Code,
-      title: "Frontend Mastery",
-      skills: ["HTML5", "CSS3", "JavaScript (ES6+)", "React.js", "Next.js", "Tailwind CSS", "Responsive Design", "DOM Manipulation", "Fetch API", "EJS Templates"]
+      title: "Frontend",
+      skills: ["HTML5", "CSS3", "JavaScript (ES6+)", "TypeScript", "React.js", "Next.js", "Tailwind CSS", "Framer Motion", "EJS Templates"]
     },
     {
       icon: Cpu,
-      title: "Backend Power",
-      skills: ["Node.js", "Express.js", "REST APIs", "Authentication Basics", "CRUD Operations", "Server-side Rendering"]
+      title: "Backend",
+      skills: ["Node.js", "Express.js", "REST APIs", "Authentication (Clerk)", "CRUD Operations", "Server-side Rendering"]
     },
     {
       icon: Database,
       title: "Database & Storage",
-      skills: ["MongoDB", "Mongoose", "Local Storage", "File Storage"]
+      skills: ["MongoDB", "Mongoose", "Local Storage", "File Handling"]
     },
     {
       icon: Binary,
-      title: "Programming Stacks",
-      skills: ["Java", "Data Structures", "Algorithms", "Problem Solving"]
+      title: "Programming & DSA",
+      skills: ["Java", "Python", "Data Structures", "Algorithms", "Problem Solving"]
     },
     {
       icon: Wrench,
-      title: "Tools & Environments",
-      skills: ["Git", "GitHub", "VS Code", "Postman", "Vercel", "npm", "Bun", "Chrome DevTools"]
+      title: "Tools & Platforms",
+      skills: ["Git", "GitHub", "VS Code", "Postman", "Vercel", "npm", "Bun", "Chrome DevTools", "Jupyter Notebook"]
     }
   ];
 
   const projects = [
     {
-      title: "Full Stack To-Do Application",
-      description: "A modern full-stack task management application that allows users to create, update, organize, and manage daily tasks efficiently. Focuses on clean architecture and high-fidelity transitions.",
-      features: ["Add new tasks", "Edit existing tasks", "Delete tasks", "Mark tasks as completed", "Dynamic UI updates", "Backend API integration", "Persistent task storage"],
-      techs: ["Next.js", "React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
+      title: "Eventra — Event Manager",
+      description: "A full-stack event management platform where users can create, browse, and manage events with a calendar sidebar, attendee tracking, and venue management.",
+      features: ["Create & manage events", "Calendar integration", "Attendee tracking", "Venue management", "Responsive dashboard"],
+      techs: ["JavaScript", "Node.js", "Express.js", "MongoDB", "CSS"],
+      image: "/projects/eventra.png",
       demo: "/projects",
-      github: "https://github.com/yourusername"
+      github: "https://github.com/akashsingh062/Eventra-your-event-manager"
     },
     {
-      title: "Secure Authentication System",
-      description: "A secure user authentication application built to master complete authorization protocols, session state handling, protected routing systems, and backend registration verification.",
-      features: ["User registration", "Login system", "Form validation", "Authentication logic", "Protected backend routes"],
-      techs: ["Node.js", "Express.js", "MongoDB", "HTML", "CSS", "JavaScript"],
+      title: "Prescripto — Doctor Booking",
+      description: "A doctor appointment booking platform that lets patients browse doctor profiles, check availability, and book appointments with a professional medical-grade UI.",
+      features: ["Doctor profiles & listings", "Appointment scheduling", "Search & filter doctors", "Booking calendar", "Patient dashboard"],
+      techs: ["JavaScript", "React", "Node.js", "Express.js", "MongoDB"],
+      image: "/projects/prescripto.png",
       demo: "/projects",
-      github: "https://github.com/yourusername"
+      github: "https://github.com/akashsingh062/Prescripto-My-Doctor"
     },
     {
-      title: "Feedback Management App",
-      description: "A backend-driven feedback application where users can submit and manage structured records. Strengthens form processing pipelines, file storage integrations, and REST workflows.",
-      features: ["Submit feedback", "Store records", "Display feedback entries", "Edit functionality", "Delete functionality"],
-      techs: ["Node.js", "Express.js", "JavaScript"],
+      title: "ByteBlogs — Blog Platform",
+      description: "A full-featured blogging platform with article management, tag-based navigation, author profiles, and a clean editorial reading experience.",
+      features: ["Create & publish articles", "Tag-based navigation", "Author profiles", "Dynamic routing", "Newsletter signup"],
+      techs: ["JavaScript", "Node.js", "Express.js", "MongoDB", "EJS"],
+      image: "/projects/byteblogs.png",
       demo: "/projects",
-      github: "https://github.com/yourusername"
+      github: "https://github.com/akashsingh062/ByteBlogs"
     },
     {
-      title: "Weight Converter Utility App",
-      description: "A frontend utility application that converts kilograms into grams, pounds, and ounces instantly. Focused on highly reactive JavaScript mathematical equations and responsive UI design.",
-      features: ["Instant conversion", "Real-time input handling", "Clean, premium UI", "Mobile responsive design"],
-      techs: ["HTML", "CSS", "JavaScript"],
+      title: "Smart AI Todo",
+      description: "An AI-enhanced task management app with intelligent suggestions, kanban board layout, progress tracking, and category-based organization.",
+      features: ["AI-powered suggestions", "Kanban board", "Progress tracking", "Category organization", "TypeScript codebase"],
+      techs: ["TypeScript", "React", "Next.js", "Tailwind CSS"],
+      image: "/projects/smarttodo.png",
       demo: "/projects",
-      github: "https://github.com/yourusername"
+      github: "https://github.com/akashsingh062/Smart-Ai-Todo"
     },
     {
-      title: "Rock Paper Scissors Game",
-      description: "A browser-based interactive game built to practice DOM manipulation and JavaScript logic. Uses micro-animations and custom score tracking states.",
-      features: ["Player vs Computer", "Score tracking", "Dynamic UI updates", "Interactive animations"],
-      techs: ["HTML", "CSS", "JavaScript"],
+      title: "BG Removal Website",
+      description: "An image background removal tool with before/after comparison, transparent export, and customizable background options — powered by API integration.",
+      features: ["Drag & drop upload", "Before/after preview", "Transparent export", "Custom backgrounds", "Instant processing"],
+      techs: ["JavaScript", "React", "CSS", "API Integration"],
+      image: "/projects/bgremoval.png",
       demo: "/projects",
-      github: "https://github.com/yourusername"
+      github: "https://github.com/akashsingh062/BG-Removal-Website"
+    },
+    {
+      title: "Sort-Link — URL Shortener",
+      description: "A URL shortener utility with click analytics, recent links history, and copy-to-clipboard functionality for managing and sharing shortened links.",
+      features: ["URL shortening", "Click analytics", "Link history", "Copy to clipboard", "Responsive design"],
+      techs: ["JavaScript", "Node.js", "Express.js", "MongoDB"],
+      image: "/projects/sortlink.png",
+      demo: "/projects",
+      github: "https://github.com/akashsingh062/Sort-Link"
     }
   ];
 
@@ -159,33 +174,39 @@ export default function Home() {
     {
       year: "2024",
       title: "Foundation Phase",
-      desc: "Started my web development journey by learning HTML, CSS, and JavaScript fundamentals. Built beginner projects to master UI structure and client-side logic."
+      desc: "Started my web development journey with HTML, CSS, and JavaScript. Built utility apps like Tic Tac Toe, Todo Lists, and a Book List App to master DOM manipulation and core logic."
     },
     {
       year: "2025",
-      title: "Backend & Full Stack Leap",
-      desc: "Expanded into backend development with Node.js and Express. Mastered REST APIs, database design with MongoDB & Mongoose, file handling, and full-stack integrations."
+      title: "Backend & Full Stack Expansion",
+      desc: "Dove into Node.js, Express, and MongoDB. Built full-stack apps like Task Manager, FullStack TodoApp, SkillPath, and Currency Exchange Rate. Started learning React and TypeScript."
+    },
+    {
+      year: "2025 — Mid",
+      title: "Advanced Projects & AI",
+      desc: "Built Smart AI Todo with TypeScript, participated in the UIDAI Hackathon, and created AtharvaAI — an AI-based cultural knowledge comparison system. Explored Python and Jupyter Notebooks."
     },
     {
       year: "2026",
-      title: "Next-Gen Engineering (Present)",
-      desc: "Currently focusing on React, Next.js, full-stack application architecture, production-ready deployments, and solving advanced Data Structures and Algorithms in Java."
+      title: "Production-Grade Engineering",
+      desc: "Building with Next.js, TypeScript, Clerk Auth, and Tailwind CSS. Shipped ByteBlogs, Prescripto, Eventra, BG-Removal, Sort-Link, and this portfolio. 30+ repositories on GitHub and counting."
     }
   ];
 
   const whyMe = [
-    "I learn by building real, production-ready applications.",
-    "I enjoy diving deep to solve complex engineering and algorithmic problems.",
-    "I focus on writing clean, scalable, and highly maintainable code.",
-    "I continuously refine my dual-capabilities across both frontend and backend systems.",
-    "I care deeply about pixel-perfect user experiences and rigorous implementation."
+    "30+ repositories on GitHub — I ship real projects, not just tutorials.",
+    "I've built everything from AI apps to medical booking platforms to event managers.",
+    "I work across the full stack — React, Next.js, Node.js, Express, MongoDB.",
+    "I pick up new tech fast — TypeScript, Clerk, Framer Motion, Python, all learned by building.",
+    "I've participated in hackathons (UIDAI) and built AI-powered tools (AtharvaAI).",
+    "I care about clean code, premium UI, and shipping production-ready software."
   ];
 
   const funFacts = [
-    "I enjoy building real-world projects that solve actual user problems.",
-    "I actively solve DSA challenges in Java to sharpen my programming mind.",
-    "I love experimenting with bleeding-edge web frameworks and build engines.",
-    "I am passionate about full-stack engineering from database queries to animation frames."
+    "I've built 30+ projects on GitHub across JavaScript, TypeScript, Python, and Java.",
+    "I participated in the UIDAI Hackathon and built an AI cultural knowledge comparison system.",
+    "I love experimenting with bleeding-edge frameworks — Next.js 16, React 19, Motion v12.",
+    "From Tic Tac Toe to AI-powered Todo apps — every project taught me something new."
   ];
 
   return (
@@ -485,7 +506,18 @@ export default function Home() {
               transition={{ duration: 0.6, delay: idx * 0.1, type: "spring", stiffness: 80 }}
               whileHover={{ y: -8, scale: 1.01 }}
             >
-              <div className="space-y-6">
+              <div className="space-y-5">
+                {/* Project Image */}
+                <div className="relative w-full h-48 rounded-2xl overflow-hidden border border-border/40 group-hover:border-primary/30 transition-colors">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+                </div>
+
                 <div className="flex items-center justify-between">
                   <h4 className="text-2xl font-bold text-text-primary group-hover:text-primary transition-colors">
                     {project.title}
@@ -735,7 +767,7 @@ export default function Home() {
                 <Mail className="h-5 w-5 text-primary shrink-0" />
                 <div>
                   <span className="text-xs font-semibold text-text-secondary block">Email</span>
-                  <a href="mailto:your-email@example.com" className="text-sm font-bold text-text-primary hover:text-primary transition-colors">your-email@example.com</a>
+                  <a href="mailto:akashsingh062@gmail.com" className="text-sm font-bold text-text-primary hover:text-primary transition-colors">akashsingh062@gmail.com</a>
                 </div>
               </motion.div>
 
@@ -755,7 +787,7 @@ export default function Home() {
             {/* Social handles */}
             <div className="flex items-center gap-3 pt-6 border-t border-border/60">
               <a 
-                href="https://github.com/yourusername" 
+                href="https://github.com/akashsingh062" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="h-10 w-10 rounded-xl bg-surface/40 hover:bg-surface border border-border hover:border-primary/50 text-text-secondary hover:text-text-primary flex items-center justify-center transition-all duration-300"
@@ -763,7 +795,7 @@ export default function Home() {
                 <Github className="h-5 w-5" />
               </a>
               <a 
-                href="https://linkedin.com/in/yourprofile" 
+                href="https://linkedin.com/in/akashsingh062" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="h-10 w-10 rounded-xl bg-surface/40 hover:bg-surface border border-border hover:border-secondary/50 text-text-secondary hover:text-text-primary flex items-center justify-center transition-all duration-300"

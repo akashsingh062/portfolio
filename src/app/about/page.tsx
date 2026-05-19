@@ -17,7 +17,7 @@ export default function AboutPage() {
     {
       icon: GraduationCap,
       title: "Education",
-      desc: "Computer Science Student",
+      desc: "B.Tech Computer Science Student",
       color: "text-primary border-primary/20 bg-primary/5"
     },
     {
@@ -29,13 +29,13 @@ export default function AboutPage() {
     {
       icon: BookOpen,
       title: "Current Learning",
-      desc: "Next.js, Advanced React, System Design",
+      desc: "Next.js, TypeScript, AI Integration",
       color: "text-accent border-accent/20 bg-accent/5"
     },
     {
       icon: Zap,
       title: "Interests",
-      desc: "Web Apps, UI Engineering, Backend Systems",
+      desc: "SaaS Products, AI Apps, Open Source",
       color: "text-yellow-500 border-yellow-500/20 bg-yellow-500/5"
     }
   ];
@@ -44,33 +44,39 @@ export default function AboutPage() {
     {
       year: "2024",
       title: "Foundation Phase",
-      desc: "Started my web development journey by learning HTML, CSS, and JavaScript fundamentals. Built beginner projects to master UI structure and client-side logic."
+      desc: "Started my web development journey with HTML, CSS, and JavaScript. Built utility apps like Tic Tac Toe, Todo Lists, and a Book List App to master DOM manipulation and core logic."
     },
     {
       year: "2025",
-      title: "Backend & Full Stack Leap",
-      desc: "Expanded into backend development with Node.js and Express. Mastered REST APIs, database design with MongoDB & Mongoose, file handling, and full-stack integrations."
+      title: "Backend & Full Stack Expansion",
+      desc: "Dove into Node.js, Express, and MongoDB. Built full-stack apps like Task Manager, FullStack TodoApp, SkillPath, and Currency Exchange Rate. Started learning React and TypeScript."
+    },
+    {
+      year: "2025 — Mid",
+      title: "Advanced Projects & AI",
+      desc: "Built Smart AI Todo with TypeScript, participated in the UIDAI Hackathon, and created AtharvaAI — an AI-based cultural knowledge comparison system. Explored Python and Jupyter Notebooks."
     },
     {
       year: "2026",
-      title: "Next-Gen Engineering (Present)",
-      desc: "Currently focusing on React, Next.js, full-stack application architecture, production-ready deployments, and solving advanced Data Structures and Algorithms in Java."
+      title: "Production-Grade Engineering",
+      desc: "Building with Next.js, TypeScript, Clerk Auth, and Tailwind CSS. Shipped ByteBlogs, Prescripto, Eventra, BG-Removal, Sort-Link, and this portfolio. 30+ repositories on GitHub and counting."
     }
   ];
 
   const whyMe = [
-    "I learn by building real, production-ready applications.",
-    "I enjoy diving deep to solve complex engineering and algorithmic problems.",
-    "I focus on writing clean, scalable, and highly maintainable code.",
-    "I continuously refine my dual-capabilities across both frontend and backend systems.",
-    "I care deeply about pixel-perfect user experiences and rigorous implementation."
+    "30+ repositories on GitHub — I ship real projects, not just tutorials.",
+    "I've built everything from AI apps to medical booking platforms to event managers.",
+    "I work across the full stack — React, Next.js, Node.js, Express, MongoDB.",
+    "I pick up new tech fast — TypeScript, Clerk, Framer Motion, Python, all learned by building.",
+    "I've participated in hackathons (UIDAI) and built AI-powered tools (AtharvaAI).",
+    "I care about clean code, premium UI, and shipping production-ready software."
   ];
 
   const funFacts = [
-    "I enjoy building real-world projects that solve actual user problems.",
-    "I actively solve DSA challenges in Java to sharpen my programming mind.",
-    "I love experimenting with bleeding-edge web frameworks and build engines.",
-    "I am passionate about full-stack engineering from database queries to animation frames."
+    "I've built 30+ projects on GitHub across JavaScript, TypeScript, Python, and Java.",
+    "I participated in the UIDAI Hackathon and built an AI cultural knowledge comparison system.",
+    "I love experimenting with bleeding-edge frameworks — Next.js 16, React 19, Motion v12.",
+    "From Tic Tac Toe to AI-powered Todo apps — every project taught me something new."
   ];
 
   return (

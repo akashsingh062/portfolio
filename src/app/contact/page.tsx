@@ -56,7 +56,7 @@ export default function ContactPage() {
               <Mail className="h-5 w-5 text-primary shrink-0" />
               <div>
                 <span className="text-xs font-semibold text-text-secondary block">Email</span>
-                <a href="mailto:your-email@example.com" className="text-sm font-bold text-text-primary hover:text-primary transition-colors">your-email@example.com</a>
+                <a href="mailto:akashsingh062@gmail.com" className="text-sm font-bold text-text-primary hover:text-primary transition-colors">akashsingh062@gmail.com</a>
               </div>
             </motion.div>
 
@@ -76,7 +76,7 @@ export default function ContactPage() {
           {/* Social handles */}
           <div className="flex items-center gap-3 pt-6 border-t border-border/60">
             <a 
-              href="https://github.com/yourusername" 
+              href="https://github.com/akashsingh062" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="h-10 w-10 rounded-xl bg-surface/40 hover:bg-surface border border-border hover:border-primary/50 text-text-secondary hover:text-text-primary flex items-center justify-center transition-all duration-300"
@@ -84,7 +84,7 @@ export default function ContactPage() {
               <Github className="h-5 w-5" />
             </a>
             <a 
-              href="https://linkedin.com/in/yourprofile" 
+              href="https://linkedin.com/in/akashsingh062" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="h-10 w-10 rounded-xl bg-surface/40 hover:bg-surface border border-border hover:border-secondary/50 text-text-secondary hover:text-text-primary flex items-center justify-center transition-all duration-300"

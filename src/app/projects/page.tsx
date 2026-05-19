@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Laptop, ArrowUpRight, Github, CheckCircle2 } from "lucide-react";
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import { Meteors } from "@/components/ui/meteors";
@@ -9,44 +10,58 @@ import { motion } from "motion/react";
 export default function ProjectsPage() {
   const projects = [
     {
-      title: "Full Stack To-Do Application",
-      description: "A modern full-stack task management application that allows users to create, update, organize, and manage daily tasks efficiently. Focuses on clean architecture and high-fidelity transitions.",
-      features: ["Add new tasks", "Edit existing tasks", "Delete tasks", "Mark tasks as completed", "Dynamic UI updates", "Backend API integration", "Persistent task storage"],
-      techs: ["Next.js", "React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
+      title: "Eventra — Event Manager",
+      description: "A full-stack event management platform where users can create, browse, and manage events with a calendar sidebar, attendee tracking, and venue management.",
+      features: ["Create & manage events", "Calendar integration", "Attendee tracking", "Venue management", "Responsive dashboard"],
+      techs: ["JavaScript", "Node.js", "Express.js", "MongoDB", "CSS"],
+      image: "/projects/eventra.png",
       demo: "#",
-      github: "https://github.com/yourusername"
+      github: "https://github.com/akashsingh062/Eventra-your-event-manager"
     },
     {
-      title: "Secure Authentication System",
-      description: "A secure user authentication application built to master complete authorization protocols, session state handling, protected routing systems, and backend registration verification.",
-      features: ["User registration", "Login system", "Form validation", "Authentication logic", "Protected backend routes"],
-      techs: ["Node.js", "Express.js", "MongoDB", "HTML", "CSS", "JavaScript"],
+      title: "Prescripto — Doctor Booking",
+      description: "A doctor appointment booking platform that lets patients browse doctor profiles, check availability, and book appointments with a professional medical-grade UI.",
+      features: ["Doctor profiles & listings", "Appointment scheduling", "Search & filter doctors", "Booking calendar", "Patient dashboard"],
+      techs: ["JavaScript", "React", "Node.js", "Express.js", "MongoDB"],
+      image: "/projects/prescripto.png",
       demo: "#",
-      github: "https://github.com/yourusername"
+      github: "https://github.com/akashsingh062/Prescripto-My-Doctor"
     },
     {
-      title: "Feedback Management App",
-      description: "A backend-driven feedback application where users can submit and manage structured records. Strengthens form processing pipelines, file storage integrations, and REST workflows.",
-      features: ["Submit feedback", "Store records", "Display feedback entries", "Edit functionality", "Delete functionality"],
-      techs: ["Node.js", "Express.js", "JavaScript"],
+      title: "ByteBlogs — Blog Platform",
+      description: "A full-featured blogging platform with article management, tag-based navigation, author profiles, and a clean editorial reading experience.",
+      features: ["Create & publish articles", "Tag-based navigation", "Author profiles", "Dynamic routing", "Newsletter signup"],
+      techs: ["JavaScript", "Node.js", "Express.js", "MongoDB", "EJS"],
+      image: "/projects/byteblogs.png",
       demo: "#",
-      github: "https://github.com/yourusername"
+      github: "https://github.com/akashsingh062/ByteBlogs"
     },
     {
-      title: "Weight Converter Utility App",
-      description: "A frontend utility application that converts kilograms into grams, pounds, and ounces instantly. Focused on highly reactive JavaScript mathematical equations and responsive UI design.",
-      features: ["Instant conversion", "Real-time input handling", "Clean, premium UI", "Mobile responsive design"],
-      techs: ["HTML", "CSS", "JavaScript"],
+      title: "Smart AI Todo",
+      description: "An AI-enhanced task management app with intelligent suggestions, kanban board layout, progress tracking, and category-based organization.",
+      features: ["AI-powered suggestions", "Kanban board", "Progress tracking", "Category organization", "TypeScript codebase"],
+      techs: ["TypeScript", "React", "Next.js", "Tailwind CSS"],
+      image: "/projects/smarttodo.png",
       demo: "#",
-      github: "https://github.com/yourusername"
+      github: "https://github.com/akashsingh062/Smart-Ai-Todo"
     },
     {
-      title: "Rock Paper Scissors Game",
-      description: "A browser-based interactive game built to practice DOM manipulation and JavaScript logic. Uses micro-animations and custom score tracking states.",
-      features: ["Player vs Computer", "Score tracking", "Dynamic UI updates", "Interactive animations"],
-      techs: ["HTML", "CSS", "JavaScript"],
+      title: "BG Removal Website",
+      description: "An image background removal tool with before/after comparison, transparent export, and customizable background options — powered by API integration.",
+      features: ["Drag & drop upload", "Before/after preview", "Transparent export", "Custom backgrounds", "Instant processing"],
+      techs: ["JavaScript", "React", "CSS", "API Integration"],
+      image: "/projects/bgremoval.png",
       demo: "#",
-      github: "https://github.com/yourusername"
+      github: "https://github.com/akashsingh062/BG-Removal-Website"
+    },
+    {
+      title: "Sort-Link — URL Shortener",
+      description: "A URL shortener utility with click analytics, recent links history, and copy-to-clipboard functionality for managing and sharing shortened links.",
+      features: ["URL shortening", "Click analytics", "Link history", "Copy to clipboard", "Responsive design"],
+      techs: ["JavaScript", "Node.js", "Express.js", "MongoDB"],
+      image: "/projects/sortlink.png",
+      demo: "#",
+      github: "https://github.com/akashsingh062/Sort-Link"
     }
   ];
 
@@ -70,7 +85,7 @@ export default function ProjectsPage() {
           Featured Work
         </h1>
         <p className="text-text-secondary max-w-2xl text-base leading-relaxed">
-          Here are some of the projects I’ve built while learning and exploring full-stack web development. Each project helped me strengthen different areas of software development, from frontend UI design to backend architecture and API integration.
+          Here are my best projects — from full-stack SaaS platforms to AI-powered tools. Each one was built to solve a real problem and push my engineering skills further.
         </p>
       </motion.section>
 
@@ -79,14 +94,25 @@ export default function ProjectsPage() {
         {projects.map((project, idx) => (
           <motion.div 
             key={idx}
-            className="group p-8 rounded-3xl bg-surface/20 border border-border/80 hover:border-primary/50 hover:shadow-[0_0_30px_rgba(124,58,237,0.1)] flex flex-col justify-between transition-colors duration-500"
+            className="group p-6 rounded-3xl bg-surface/20 border border-border/80 hover:border-primary/50 hover:shadow-[0_0_30px_rgba(124,58,237,0.1)] flex flex-col justify-between transition-colors duration-500"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false }}
             transition={{ duration: 0.6, delay: idx * 0.1, type: "spring", stiffness: 80 }}
             whileHover={{ y: -8, scale: 1.01 }}
           >
-            <div className="space-y-6">
+            <div className="space-y-5">
+              {/* Project Image */}
+              <div className="relative w-full h-52 rounded-2xl overflow-hidden border border-border/40 group-hover:border-primary/30 transition-colors">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+              </div>
+
               <div className="flex items-center justify-between">
                 <h2 className="text-2xl font-bold text-text-primary group-hover:text-primary transition-colors">
                   {project.title}
