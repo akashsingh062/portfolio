@@ -35,7 +35,7 @@ import {
 } from "lucide-react";
 import { stats, quickInfos, skillCategories, projects, journey, whyMe, funFacts } from "@/lib/data";
 
-// Roles list for typewriter / rotator
+
 const roles = [
   "Full Stack Web Developer",
   "React & Next.js Developer",
@@ -55,12 +55,12 @@ export default function Home() {
 
   return (
     <main className="flex-grow flex flex-col items-center justify-start p-6 md:p-24 space-y-24 md:space-y-36 overflow-hidden">
-      {/* Meteor Background Overlay */}
+      
       <Meteors number={30} />
 
-      {/* ================= HERO SECTION ================= */}
+      
       <section id="hero" className="w-full max-w-7xl flex flex-col lg:flex-row items-center justify-center gap-12 mt-8 lg:mt-16">
-        {/* Photo Section with Backlight - Spring entry with rotation */}
+        
         <motion.div 
           className="shrink-0 shadow-[0_0_40px_rgba(124,58,237,0.2)] rounded-[2.5rem] bg-gradient-to-tr from-primary to-secondary p-1"
           initial={{ opacity: 0, scale: 0.8, rotate: -3 }}
@@ -72,7 +72,7 @@ export default function Home() {
           </Backlight>
         </motion.div>
         
-        {/* Name & Intro Section */}
+        
         <div className="text-center lg:text-left space-y-6 max-w-2xl flex-1 lg:flex-none px-4 lg:px-0">
           <motion.div 
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold text-accent border border-accent/20 bg-accent/5 backdrop-blur-md"
@@ -105,7 +105,7 @@ export default function Home() {
             </ComicText>
           </div>
 
-          {/* Rotating Role Text */}
+          
           <div className="h-10 flex items-center justify-center lg:justify-start">
             <AnimatePresence mode="wait">
               <motion.div
@@ -131,7 +131,7 @@ export default function Home() {
             I’m a Computer Science student passionate about building modern, scalable, and user-friendly web applications. From frontend interfaces to backend APIs, I love transforming ideas into real full-stack products.
           </motion.p>
 
-          {/* CTA Action Buttons */}
+          
           <motion.div 
             className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4"
             initial={{ opacity: 0, y: 20 }}
@@ -173,7 +173,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Hero Stats - Pop up spring staggered */}
+      
       <section className="w-full max-w-6xl grid grid-cols-1 sm:grid-cols-3 gap-6">
         {stats.map((stat, idx) => (
           <motion.div 
@@ -194,7 +194,7 @@ export default function Home() {
         ))}
       </section>
 
-      {/* ================= ABOUT SECTION ================= */}
+      
       <section id="about" className="w-full max-w-6xl space-y-12">
         <motion.div 
           className="text-center md:text-left space-y-3"
@@ -213,7 +213,7 @@ export default function Home() {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          {/* About narrative - Fade in slide */}
+          
           <motion.div 
             className="lg:col-span-7 space-y-6 text-text-secondary text-base leading-relaxed"
             initial={{ opacity: 0, x: -30 }}
@@ -235,7 +235,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          {/* Quick Info Grid - Pop up stagger */}
+          
           <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
             {quickInfos.map((card, idx) => (
               <motion.div 
@@ -262,7 +262,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ================= SKILLS SECTION ================= */}
+      
       <section id="skills" className="w-full max-w-6xl space-y-12">
         <motion.div 
           className="text-center space-y-3"
@@ -317,7 +317,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ================= PROJECTS SECTION ================= */}
+      
       <section id="projects" className="w-full max-w-6xl space-y-12">
         <motion.div 
           className="text-center space-y-3"
@@ -350,7 +350,7 @@ export default function Home() {
               whileHover={{ y: -8, scale: 1.01 }}
             >
               <div className="space-y-5">
-                {/* Project Image */}
+                
                 <div className="relative w-full h-48 rounded-2xl overflow-hidden border border-border/40 group-hover:border-primary/30 transition-colors">
                   <Image
                     src={project.image}
@@ -381,7 +381,7 @@ export default function Home() {
                   {project.description}
                 </p>
 
-                {/* Features Checklist */}
+                
                 <div className="space-y-2">
                   <span className="text-xs font-bold text-text-primary uppercase tracking-wider block">Key Features</span>
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs text-text-secondary">
@@ -407,7 +407,7 @@ export default function Home() {
                   ))}
                 </div>
 
-                {/* Links */}
+                
                 <div className="flex items-center gap-4 mt-6">
                   <RainbowButton asChild size="sm" className="font-semibold">
                     <Link target="_blank" href={project.demo}>Live Demo</Link>
@@ -428,7 +428,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ================= JOURNEY / EXPERIENCE SECTION ================= */}
+      
       <section id="journey" className="w-full max-w-5xl space-y-12">
         <motion.div 
           className="text-center space-y-3"
@@ -446,7 +446,7 @@ export default function Home() {
           </h3>
         </motion.div>
 
-        {/* Timeline Component */}
+        
         <div className="relative border-l-2 border-border/60 ml-4 md:ml-12 pl-6 md:pl-12 space-y-10">
           {journey.map((item, idx) => (
             <motion.div 
@@ -457,7 +457,7 @@ export default function Home() {
               viewport={{ once: false, margin: "-100px" }}
               transition={{ duration: 0.6, delay: idx * 0.15 }}
             >
-              {/* Pulsing indicator node */}
+              
               <div className="absolute -left-[31px] md:-left-[55px] top-1 h-4 w-4 rounded-full bg-gradient-to-r from-primary to-secondary border-2 border-background group-hover:scale-125 transition-transform duration-300 shadow-[0_0_10px_rgba(124,58,237,0.5)]" />
               
               <div className="space-y-2">
@@ -476,7 +476,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ================= WHY WORK WITH ME ================= */}
+      
       <section id="why-me" className="w-full max-w-6xl space-y-12">
         <motion.div 
           className="text-center space-y-3"
@@ -513,9 +513,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ================= FUN / ADDITIONAL FACTS ================= */}
+      
       <section id="fun-facts" className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-12">
-        {/* Current Focus */}
+        
         <motion.div 
           className="p-8 rounded-3xl bg-surface/20 border border-border/80 space-y-6"
           initial={{ opacity: 0, x: -40 }}
@@ -541,7 +541,7 @@ export default function Home() {
           </ul>
         </motion.div>
 
-        {/* Fun Facts */}
+        
         <motion.div 
           className="p-8 rounded-3xl bg-surface/20 border border-border/80 space-y-6"
           initial={{ opacity: 0, x: 40 }}
@@ -565,7 +565,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* ================= CONTACT SECTION ================= */}
+      
       <section id="contact" className="w-full max-w-6xl space-y-12">
         <motion.div 
           className="text-center space-y-3"
@@ -587,7 +587,7 @@ export default function Home() {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          {/* Contact Details */}
+          
           <motion.div 
             className="lg:col-span-5 space-y-8 flex flex-col justify-between"
             initial={{ opacity: 0, x: -40 }}
@@ -603,7 +603,7 @@ export default function Home() {
             </div>
 
             <div className="space-y-5">
-              {/* Detail Items */}
+              
               <motion.div 
                 className="flex items-center gap-4 p-4 rounded-xl bg-surface/30 border border-border/60 hover:border-primary/40 transition-colors"
                 whileHover={{ x: 6, scale: 1.01 }}
@@ -629,7 +629,7 @@ export default function Home() {
               </motion.div>
             </div>
 
-            {/* Social handles */}
+            
             <div className="flex items-center gap-3 pt-6 border-t border-border/60">
               <a 
                 href="https://github.com/akashsingh062" 
@@ -650,7 +650,7 @@ export default function Home() {
             </div>
           </motion.div>
 
-          {/* Contact Form */}
+          
           <motion.div 
             className="lg:col-span-7 p-8 rounded-3xl bg-surface/30 border border-border/80 backdrop-blur-md"
             initial={{ opacity: 0, x: 40 }}

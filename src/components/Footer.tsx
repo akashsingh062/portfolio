@@ -9,7 +9,7 @@ export default function Footer() {
   return (
     <footer className="w-full border-t border-border/40 bg-surface/10 backdrop-blur-md mt-auto">
       <div className="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
-        {/* Left - Branding */}
+        
         <div className="flex flex-col items-center md:items-start gap-1">
           <Link
             href="/"
@@ -22,7 +22,7 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Center - Nav Links */}
+        
         <nav className="flex items-center gap-6 text-sm font-semibold text-text-secondary">
           {[
             { label: "Home", href: "/" },
@@ -40,7 +40,7 @@ export default function Footer() {
           ))}
         </nav>
 
-        {/* Right - Socials */}
+        
         <div className="flex items-center gap-3">
           <a
             href="https://github.com/akashsingh062"
@@ -70,7 +70,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom bar */}
+      
       <div className="border-t border-border/30 py-4 px-6">
         <p className="text-center text-xs text-text-secondary flex items-center justify-center gap-1">
           © {currentYear} Akash Singh. Built with

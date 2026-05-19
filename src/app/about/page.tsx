@@ -17,10 +17,10 @@ export default function AboutPage() {
 
   return (
     <main className="flex-grow flex flex-col items-center justify-start p-6 md:p-24 space-y-16 md:space-y-24 overflow-hidden min-h-screen pb-32">
-      {/* Meteor Background Overlay */}
+      
       <Meteors number={20} />
 
-      {/* About Section Header - Smooth fade and slide down */}
+      
       <motion.section 
         className="w-full max-w-6xl space-y-6 mt-8 md:mt-12 text-center md:text-left"
         initial={{ opacity: 0, y: -30 }}
@@ -36,9 +36,9 @@ export default function AboutPage() {
         </h1>
       </motion.section>
 
-      {/* Main Grid */}
+      
       <section className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-        {/* Narrative - Slide in from left */}
+        
         <motion.div 
           className="lg:col-span-7 space-y-6 text-text-secondary text-base leading-relaxed"
           initial={{ opacity: 0, x: -40 }}
@@ -59,7 +59,7 @@ export default function AboutPage() {
           </p>
         </motion.div>
 
-        {/* Quick Info - Pop up stagger */}
+        
         <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
           {quickInfos.map((card, idx) => (
             <motion.div 
@@ -84,7 +84,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Timeline Section */}
+      
       <section className="w-full max-w-5xl space-y-12">
         <div className="text-center md:text-left space-y-3">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold text-accent border border-accent/20 bg-accent/5">
@@ -124,7 +124,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Why Work With Me */}
+      
       <section className="w-full max-w-6xl space-y-12">
         <div className="text-center space-y-3">
           <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
@@ -152,9 +152,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Fun Facts Section */}
+      
       <section className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-12">
-        {/* Current Focus */}
+        
         <motion.div 
           className="p-8 rounded-3xl bg-surface/20 border border-border/80 space-y-6"
           initial={{ opacity: 0, x: -40 }}
@@ -180,7 +180,7 @@ export default function AboutPage() {
           </ul>
         </motion.div>
 
-        {/* Fun Facts */}
+        
         <motion.div 
           className="p-8 rounded-3xl bg-surface/20 border border-border/80 space-y-6"
           initial={{ opacity: 0, x: 40 }}

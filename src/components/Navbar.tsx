@@ -14,7 +14,7 @@ export default function Navbar() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
+    
     setMounted(true);
   }, []);
 
@@ -27,7 +27,7 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Floating Dock at Bottom with spring entrance animation */}
+      
       <motion.div
         className="fixed bottom-6 left-1/2 z-50"
         initial={{ y: 100, x: "-50%", opacity: 0 }}

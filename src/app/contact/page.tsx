@@ -46,10 +46,10 @@ export default function ContactPage() {
 
   return (
     <main className="flex-grow flex flex-col items-center justify-start p-6 md:p-24 space-y-16 md:space-y-24 overflow-hidden min-h-screen pb-32">
-      {/* Meteor Background Overlay */}
+      
       <Meteors number={20} />
 
-      {/* Contact Section Header */}
+      
       <motion.section 
         className="w-full max-w-6xl space-y-6 mt-8 md:mt-12 text-center md:text-left"
         initial={{ opacity: 0, y: -30 }}
@@ -68,9 +68,9 @@ export default function ContactPage() {
         </p>
       </motion.section>
 
-      {/* Contact Contents Grid */}
+      
       <section className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-12 gap-12">
-        {/* Contact Details */}
+        
         <motion.div 
           className="lg:col-span-5 space-y-8 flex flex-col justify-between"
           initial={{ opacity: 0, x: -40 }}
@@ -85,7 +85,7 @@ export default function ContactPage() {
           </div>
 
           <div className="space-y-5">
-            {/* Detail Items */}
+            
             <motion.div 
               className="flex items-center gap-4 p-4 rounded-xl bg-surface/30 border border-border/60 hover:border-primary/40 transition-colors"
               whileHover={{ x: 6, scale: 1.01 }}
@@ -123,7 +123,7 @@ export default function ContactPage() {
             </motion.div>
           </div>
 
-          {/* Social handles */}
+          
           <div className="flex items-center gap-3 pt-6 border-t border-border/60">
             <a 
               href="https://github.com/akashsingh062" 
@@ -144,7 +144,7 @@ export default function ContactPage() {
           </div>
         </motion.div>
 
-        {/* Contact Form */}
+        
         <motion.div 
           className="lg:col-span-7 p-8 rounded-3xl bg-surface/30 border border-border/80 backdrop-blur-md"
           initial={{ opacity: 0, x: 40 }}
@@ -221,7 +221,7 @@ export default function ContactPage() {
                 </span>
               </RainbowButton>
 
-              {/* Status Messages */}
+              
               {submitStatus === "success" && (
                 <motion.div 
                   initial={{ opacity: 0, y: 10 }}

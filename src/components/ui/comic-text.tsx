@@ -27,7 +27,7 @@ export function ComicText({
       style={{
         fontFamily: "'Bangers', 'Comic Sans MS', 'Impact', sans-serif",
         fontWeight: "900",
-        WebkitTextStroke: `0.04em #000000`, // Scales automatically with font size
+        WebkitTextStroke: `0.04em #000000`, 
         textTransform: "uppercase",
         filter: `
           drop-shadow(5px 5px 0px #000000) 

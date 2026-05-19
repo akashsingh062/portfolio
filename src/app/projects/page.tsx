@@ -12,10 +12,10 @@ export default function ProjectsPage() {
 
   return (
     <main className="flex-grow flex flex-col items-center justify-start p-6 md:p-24 space-y-16 md:space-y-24 overflow-hidden min-h-screen pb-32">
-      {/* Meteor Background Overlay */}
+      
       <Meteors number={25} />
 
-      {/* Projects Section Header */}
+      
       <motion.section 
         className="w-full max-w-6xl space-y-6 mt-8 md:mt-12 text-center md:text-left"
         initial={{ opacity: 0, y: -30 }}
@@ -34,7 +34,7 @@ export default function ProjectsPage() {
         </p>
       </motion.section>
 
-      {/* Projects Grid */}
+      
       <section className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-8">
         {projects.map((project, idx) => (
           <motion.div 
@@ -47,7 +47,7 @@ export default function ProjectsPage() {
             whileHover={{ y: -8, scale: 1.01 }}
           >
             <div className="space-y-5">
-              {/* Project Image */}
+              
               <div className="relative w-full h-52 rounded-2xl overflow-hidden border border-border/40 group-hover:border-primary/30 transition-colors">
                 <Image
                   src={project.image}
@@ -78,7 +78,7 @@ export default function ProjectsPage() {
                 {project.description}
               </p>
 
-              {/* Features Checklist */}
+              
               <div className="space-y-2">
                 <span className="text-xs font-bold text-text-primary uppercase tracking-wider block">Key Features</span>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs text-text-secondary">
@@ -104,7 +104,7 @@ export default function ProjectsPage() {
                 ))}
               </div>
 
-              {/* Links */}
+              
               <div className="flex items-center gap-4 mt-6">
                 <RainbowButton asChild size="sm" className="font-semibold">
                   <Link href={project.demo}>Live Demo</Link>
