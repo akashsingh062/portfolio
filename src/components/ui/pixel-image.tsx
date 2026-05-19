@@ -120,6 +120,8 @@ export const PixelImage = ({
             src={src}
             alt={`Pixel image piece ${index + 1}`}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            priority
             className={cn(
               "z-1 rounded-[2.5rem] object-cover",
               grayscaleAnimation && (showColor ? "grayscale-0" : "grayscale")
