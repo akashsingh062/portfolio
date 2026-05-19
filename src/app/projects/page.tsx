@@ -6,64 +6,9 @@ import { Laptop, ArrowUpRight, Github, CheckCircle2 } from "lucide-react";
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import { Meteors } from "@/components/ui/meteors";
 import { motion } from "motion/react";
+import { projects } from "@/lib/data";
 
 export default function ProjectsPage() {
-  const projects = [
-    {
-      title: "Eventra — Event Manager",
-      description: "A full-stack event management platform where users can create, browse, and manage events with a calendar sidebar, attendee tracking, and venue management.",
-      features: ["Create & manage events", "Calendar integration", "Attendee tracking", "Venue management", "Responsive dashboard"],
-      techs: ["JavaScript", "Node.js", "Express.js", "MongoDB", "CSS"],
-      image: "/projects/eventra.png",
-      demo: "#",
-      github: "https://github.com/akashsingh062/Eventra-your-event-manager"
-    },
-    {
-      title: "Prescripto — Doctor Booking",
-      description: "A doctor appointment booking platform that lets patients browse doctor profiles, check availability, and book appointments with a professional medical-grade UI.",
-      features: ["Doctor profiles & listings", "Appointment scheduling", "Search & filter doctors", "Booking calendar", "Patient dashboard"],
-      techs: ["JavaScript", "React", "Node.js", "Express.js", "MongoDB"],
-      image: "/projects/prescripto.png",
-      demo: "#",
-      github: "https://github.com/akashsingh062/Prescripto-My-Doctor"
-    },
-    {
-      title: "Link-Tree — Bio Links",
-      description: "A personal link tree application that aggregates all social profiles and important links into a single beautiful, shareable page with a glassmorphism design.",
-      features: ["Custom profile page", "Social link aggregation", "Glassmorphism UI", "Mobile responsive", "One-click sharing"],
-      techs: ["JavaScript", "Node.js", "Express.js", "CSS"],
-      image: "/projects/linktree.png",
-      demo: "#",
-      github: "https://github.com/akashsingh062/link-tree"
-    },
-    {
-      title: "Smart AI Todo",
-      description: "An AI-enhanced task management app with intelligent suggestions, kanban board layout, progress tracking, and category-based organization.",
-      features: ["AI-powered suggestions", "Kanban board", "Progress tracking", "Category organization", "TypeScript codebase"],
-      techs: ["TypeScript", "React", "Next.js", "Tailwind CSS"],
-      image: "/projects/smarttodo.png",
-      demo: "#",
-      github: "https://github.com/akashsingh062/Smart-Ai-Todo"
-    },
-    {
-      title: "BG Removal Website",
-      description: "An image background removal tool with before/after comparison, transparent export, and customizable background options — powered by API integration.",
-      features: ["Drag & drop upload", "Before/after preview", "Transparent export", "Custom backgrounds", "Instant processing"],
-      techs: ["JavaScript", "React", "CSS", "API Integration"],
-      image: "/projects/bgremoval.png",
-      demo: "#",
-      github: "https://github.com/akashsingh062/BG-Removal-Website"
-    },
-    {
-      title: "Sort-Link — URL Shortener",
-      description: "A URL shortener utility with click analytics, recent links history, and copy-to-clipboard functionality for managing and sharing shortened links.",
-      features: ["URL shortening", "Click analytics", "Link history", "Copy to clipboard", "Responsive design"],
-      techs: ["JavaScript", "Node.js", "Express.js", "MongoDB"],
-      image: "/projects/sortlink.png",
-      demo: "#",
-      github: "https://github.com/akashsingh062/Sort-Link"
-    }
-  ];
 
   return (
     <main className="flex-grow flex flex-col items-center justify-start p-6 md:p-24 space-y-16 md:space-y-24 overflow-hidden min-h-screen pb-32">

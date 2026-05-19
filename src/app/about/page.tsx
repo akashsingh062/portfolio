@@ -4,80 +4,16 @@ import { motion } from "motion/react";
 import { 
   Sparkles, 
   CheckCircle2, 
-  Calendar, 
+  Calendar,
   GraduationCap, 
   Laptop, 
   BookOpen, 
-  Zap 
+  Zap
 } from "lucide-react";
 import { Meteors } from "@/components/ui/meteors";
+import { quickInfos, journey, whyMe, funFacts } from "@/lib/data";
 
 export default function AboutPage() {
-  const quickInfos = [
-    {
-      icon: GraduationCap,
-      title: "Education",
-      desc: "B.Tech Computer Science Student",
-      color: "text-primary border-primary/20 bg-primary/5"
-    },
-    {
-      icon: Laptop,
-      title: "Specialization",
-      desc: "Full Stack Web Development",
-      color: "text-secondary border-secondary/20 bg-secondary/5"
-    },
-    {
-      icon: BookOpen,
-      title: "Current Learning",
-      desc: "Next.js, TypeScript, AI Integration",
-      color: "text-accent border-accent/20 bg-accent/5"
-    },
-    {
-      icon: Zap,
-      title: "Interests",
-      desc: "SaaS Products, AI Apps, Open Source",
-      color: "text-yellow-500 border-yellow-500/20 bg-yellow-500/5"
-    }
-  ];
-
-  const journey = [
-    {
-      year: "2024",
-      title: "Foundation Phase",
-      desc: "Started my web development journey with HTML, CSS, and JavaScript. Built utility apps like Tic Tac Toe, Todo Lists, and a Book List App to master DOM manipulation and core logic."
-    },
-    {
-      year: "2025",
-      title: "Backend & Full Stack Expansion",
-      desc: "Dove into Node.js, Express, and MongoDB. Built full-stack apps like Task Manager, FullStack TodoApp, SkillPath, and Currency Exchange Rate. Started learning React and TypeScript."
-    },
-    {
-      year: "2025 — Mid",
-      title: "Advanced Projects & AI",
-      desc: "Built Smart AI Todo with TypeScript, participated in the UIDAI Hackathon, and created AtharvaAI — an AI-based cultural knowledge comparison system. Explored Python and Jupyter Notebooks."
-    },
-    {
-      year: "2026",
-      title: "Production-Grade Engineering",
-      desc: "Building with Next.js, TypeScript, Clerk Auth, and Tailwind CSS. Shipped ByteBlogs, Prescripto, Eventra, BG-Removal, Sort-Link, and this portfolio. 30+ repositories on GitHub and counting."
-    }
-  ];
-
-  const whyMe = [
-    "30+ repositories on GitHub — I ship real projects, not just tutorials.",
-    "I've built everything from AI apps to medical booking platforms to event managers.",
-    "I work across the full stack — React, Next.js, Node.js, Express, MongoDB.",
-    "I pick up new tech fast — TypeScript, Clerk, Framer Motion, Python, all learned by building.",
-    "I've participated in hackathons (UIDAI) and built AI-powered tools (AtharvaAI).",
-    "I care about clean code, premium UI, and shipping production-ready software."
-  ];
-
-  const funFacts = [
-    "I've built 30+ projects on GitHub across JavaScript, TypeScript, Python, and Java.",
-    "I participated in the UIDAI Hackathon and built an AI cultural knowledge comparison system.",
-    "I love experimenting with bleeding-edge frameworks — Next.js 16, React 19, Motion v12.",
-    "From Tic Tac Toe to AI-powered Todo apps — every project taught me something new."
-  ];
 
   return (
     <main className="flex-grow flex flex-col items-center justify-start p-6 md:p-24 space-y-16 md:space-y-24 overflow-hidden min-h-screen pb-32">
