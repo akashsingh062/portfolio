@@ -77,7 +77,7 @@ export const projects = [
     description: "A full-stack event management platform where users can create, browse, and manage events with a calendar sidebar, attendee tracking, and venue management.",
     features: ["Create & manage events", "Calendar integration", "Attendee tracking", "Venue management", "Responsive dashboard"],
     techs: ["JavaScript", "Node.js", "Express.js", "MongoDB", "CSS"],
-    image: "/projects/eventra.png",
+    image: "/public/projects/eventra.png",
     demo: "https://eventra-your-event-manager.onrender.com",
     github: "https://github.com/akashsingh062/Eventra-your-event-manager"
   },
