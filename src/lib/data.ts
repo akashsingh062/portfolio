@@ -114,7 +114,7 @@ export const projects = [
     features: ["Drag & drop upload", "Before/after preview", "Transparent export", "Custom backgrounds", "Instant processing"],
     techs: ["JavaScript", "React", "CSS", "API Integration"],
     image: "/projects/bgremoval.png",
-    demo: "https://bg-removal-lilac-nine.vercel.app/",
+    demo: "https://bg-removal-website.vercel.app/",
     github: "https://github.com/akashsingh062/BG-Removal-Website"
   },
   {
@@ -123,7 +123,7 @@ export const projects = [
     features: ["URL shortening", "Click analytics", "Link history", "Copy to clipboard", "Responsive design"],
     techs: ["JavaScript", "Node.js", "Express.js", "MongoDB"],
     image: "/projects/sortlink.png",
-    demo: "https://bg-removal-lilac-nine.vercel.app/",
+    demo: "https://sort-link-five.vercel.app/",
     github: "https://github.com/akashsingh062/Sort-Link"
   }
 ];
