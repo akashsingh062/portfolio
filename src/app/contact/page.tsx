@@ -60,7 +60,7 @@ export default function ContactPage() {
           <Mail className="h-3 w-3" />
           <span>Contact</span>
         </div>
-        <h1 className="text-4xl md:text-6xl font-black bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent pb-1 leading-tight">
+        <h1 className="text-4xl md:text-6xl font-black text-primary pb-1 leading-tight">
           Let’s Build Something Together
         </h1>
         <p className="text-text-secondary max-w-2xl text-base leading-relaxed">
