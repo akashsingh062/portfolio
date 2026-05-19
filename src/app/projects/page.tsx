@@ -28,13 +28,13 @@ export default function ProjectsPage() {
       github: "https://github.com/akashsingh062/Prescripto-My-Doctor"
     },
     {
-      title: "ByteBlogs — Blog Platform",
-      description: "A full-featured blogging platform with article management, tag-based navigation, author profiles, and a clean editorial reading experience.",
-      features: ["Create & publish articles", "Tag-based navigation", "Author profiles", "Dynamic routing", "Newsletter signup"],
-      techs: ["JavaScript", "Node.js", "Express.js", "MongoDB", "EJS"],
-      image: "/projects/byteblogs.png",
+      title: "Link-Tree — Bio Links",
+      description: "A personal link tree application that aggregates all social profiles and important links into a single beautiful, shareable page with a glassmorphism design.",
+      features: ["Custom profile page", "Social link aggregation", "Glassmorphism UI", "Mobile responsive", "One-click sharing"],
+      techs: ["JavaScript", "Node.js", "Express.js", "CSS"],
+      image: "/projects/linktree.png",
       demo: "#",
-      github: "https://github.com/akashsingh062/ByteBlogs"
+      github: "https://github.com/akashsingh062/link-tree"
     },
     {
       title: "Smart AI Todo",

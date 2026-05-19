@@ -133,13 +133,13 @@ export default function Home() {
       github: "https://github.com/akashsingh062/Prescripto-My-Doctor"
     },
     {
-      title: "ByteBlogs — Blog Platform",
-      description: "A full-featured blogging platform with article management, tag-based navigation, author profiles, and a clean editorial reading experience.",
-      features: ["Create & publish articles", "Tag-based navigation", "Author profiles", "Dynamic routing", "Newsletter signup"],
-      techs: ["JavaScript", "Node.js", "Express.js", "MongoDB", "EJS"],
-      image: "/projects/byteblogs.png",
+      title: "Link-Tree — Bio Links",
+      description: "A personal link tree application that aggregates all social profiles and important links into a single beautiful, shareable page with a glassmorphism design.",
+      features: ["Custom profile page", "Social link aggregation", "Glassmorphism UI", "Mobile responsive", "One-click sharing"],
+      techs: ["JavaScript", "Node.js", "Express.js", "CSS"],
+      image: "/projects/linktree.png",
       demo: "/projects",
-      github: "https://github.com/akashsingh062/ByteBlogs"
+      github: "https://github.com/akashsingh062/link-tree"
     },
     {
       title: "Smart AI Todo",
@@ -240,22 +240,21 @@ export default function Home() {
             <span>🚀 Full Stack Developer | Computer Science Student</span>
           </motion.div>
 
-          <div className="text-4xl sm:text-5xl md:text-7xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent pb-2 whitespace-nowrap">
+          <div className="text-4xl sm:text-5xl md:text-7xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent pb-2">
             <ComicText>
               <TextAnimate
                 variants={{
-                  hidden: { opacity: 0, y: 30, rotate: 45, scale: 0.5 },
+                  hidden: { opacity: 0, y: 30, scale: 0.8 },
                   show: (i) => ({
-                    opacity: 1, y: 0, rotate: 0, scale: 1,
+                    opacity: 1, y: 0, scale: 1,
                     transition: {
-                      delay: i * 0.1, duration: 0.4,
+                      delay: i * 0.12, duration: 0.5,
                       y: { type: "spring", damping: 12, stiffness: 200, mass: 0.8 },
-                      rotate: { type: "spring", damping: 8, stiffness: 150 },
                       scale: { type: "spring", damping: 10, stiffness: 300 },
                     },
                   }),
                 }}
-                by="character"
+                by="word"
               >
                 Hi, I&apos;m Akash Singh
               </TextAnimate>
