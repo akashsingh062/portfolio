@@ -70,20 +70,14 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
     return (
       <motion.div
         ref={ref}
-        onMouseMove={(e) => mouseX.set(e.pageX)}
-        onMouseLeave={() => mouseX.set(Infinity)}
-        onTouchStart={(e) => {
-          if (e.touches.length > 0) {
-            mouseX.set(e.touches[0].pageX);
+        onPointerMove={(e) => {
+          if (e.pointerType === "mouse") {
+            mouseX.set(e.pageX);
           }
         }}
-        onTouchMove={(e) => {
-          if (e.touches.length > 0) {
-            mouseX.set(e.touches[0].pageX);
-          }
+        onPointerLeave={() => {
+          mouseX.set(Infinity);
         }}
-        onTouchEnd={() => mouseX.set(Infinity)}
-        onTouchCancel={() => mouseX.set(Infinity)}
         {...props}
         className={cn(dockVariants({ className }), {
           "items-start": direction === "top",
