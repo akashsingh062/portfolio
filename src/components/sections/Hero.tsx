@@ -56,18 +56,18 @@ export default function Hero() {
 
         <h1 className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tight pb-2 select-none leading-[1.15] text-text-primary">
           Hi, I&apos;m{" "}
-          <span className="relative inline-block drop-shadow-[0_2px_20px_rgba(193,18,31,0.25)]">
-            <TextAnimate
-              animation="blurInUp"
-              by="character"
-              once
-              startOnView={false}
-              as="span"
-              className="inline-block font-black bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent"
-            >
-              Akash Singh
-            </TextAnimate>
-          </span>
+          <motion.span
+            initial={{ opacity: 0, y: 25, filter: "blur(10px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{
+              duration: 0.8,
+              ease: [0.16, 1, 0.3, 1],
+              delay: 0.3,
+            }}
+            className="relative inline-block font-black bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent drop-shadow-[0_2px_20px_rgba(193,18,31,0.25)]"
+          >
+            Akash Singh
+          </motion.span>
         </h1>
 
         {/* Roles typing area */}

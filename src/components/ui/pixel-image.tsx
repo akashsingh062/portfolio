@@ -82,16 +82,16 @@ export const PixelImage = ({
       const row = Math.floor(index / cols)
       const col = index % cols
 
-      const clipPath = `polygon(
-        ${col * (100 / cols)}% ${row * (100 / rows)}%,
-        ${(col + 1) * (100 / cols)}% ${row * (100 / rows)}%,
-        ${(col + 1) * (100 / cols)}% ${(row + 1) * (100 / rows)}%,
-        ${col * (100 / cols)}% ${(row + 1) * (100 / rows)}%
-      )`
+      const colStart = (col * (100 / cols)).toFixed(4)
+      const rowStart = (row * (100 / rows)).toFixed(4)
+      const colEnd = ((col + 1) * (100 / cols)).toFixed(4)
+      const rowEnd = ((row + 1) * (100 / rows)).toFixed(4)
+
+      const clipPath = `polygon(${colStart}% ${rowStart}%, ${colEnd}% ${rowStart}%, ${colEnd}% ${rowEnd}%, ${colStart}% ${rowEnd}%)`
 
       // Pure deterministic pseudo-random delay based on index seed
       const rand = Math.abs(Math.sin(index + 1) * 10000) % 1
-      const delay = rand * maxAnimationDelay
+      const delay = Math.round(rand * maxAnimationDelay)
       return {
         clipPath,
         delay,
