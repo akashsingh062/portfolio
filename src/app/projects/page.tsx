@@ -42,7 +42,7 @@ export default function ProjectsPage() {
             className="group p-6 rounded-3xl bg-surface/20 border border-border/80 hover:border-primary/50 hover:shadow-[0_0_30px_rgba(124,58,237,0.1)] flex flex-col justify-between transition-colors duration-500"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             transition={{ duration: 0.6, delay: idx * 0.1, type: "spring", stiffness: 80 }}
             whileHover={{ y: -8, scale: 1.01 }}
           >

@@ -11,9 +11,9 @@ import {
 } from "lucide-react";
 
 export const stats = [
-  { value: "30+", label: "GitHub Repositories", color: "from-primary to-purple-500" },
-  { value: "2+ Years", label: "Building Web Apps", color: "from-cyan-500 to-secondary" },
-  { value: "Full Stack", label: "Frontend + Backend + AI", color: "from-accent to-secondary" }
+  { value: "30+", label: "GitHub Repositories", color: "from-primary to-steel-blue-600" },
+  { value: "2+ Years", label: "Building Web Apps", color: "from-brick-red-600 to-accent" },
+  { value: "Full Stack", label: "Frontend + Backend + AI", color: "from-molten-lava-600 to-secondary" }
 ];
 
 export const quickInfos = [
@@ -39,7 +39,7 @@ export const quickInfos = [
     icon: Zap,
     title: "Interests",
     desc: "SaaS Products, AI Apps, Open Source",
-    color: "text-yellow-500 border-yellow-500/20 bg-yellow-500/5"
+    color: "text-interest border-interest/20 bg-interest/5"
   }
 ];
 

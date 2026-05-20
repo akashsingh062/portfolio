@@ -103,7 +103,7 @@ export default function AboutPage() {
               className="relative group"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: false, margin: "-100px" }}
+              viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: idx * 0.15 }}
             >
               <div className="absolute -left-[31px] md:-left-[55px] top-1 h-4 w-4 rounded-full bg-gradient-to-r from-primary to-secondary border-2 border-background group-hover:scale-125 transition-transform duration-300 shadow-[0_0_10px_rgba(124,58,237,0.5)]" />
@@ -139,7 +139,7 @@ export default function AboutPage() {
               className="p-6 rounded-2xl bg-surface/30 border border-border/80 hover:border-primary/40 flex items-start gap-4 transition-colors"
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.08 }}
               whileHover={{ y: -4, scale: 1.02 }}
             >
@@ -159,7 +159,7 @@ export default function AboutPage() {
           className="p-8 rounded-3xl bg-surface/20 border border-border/80 space-y-6"
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6, type: "spring" }}
           whileHover={{ y: -4 }}
         >
@@ -185,7 +185,7 @@ export default function AboutPage() {
           className="p-8 rounded-3xl bg-surface/20 border border-border/80 space-y-6"
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6, type: "spring" }}
           whileHover={{ y: -4 }}
         >

@@ -200,7 +200,7 @@ export default function Home() {
           className="text-center md:text-left space-y-3"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold text-primary border border-primary/20 bg-primary/5">
@@ -218,7 +218,7 @@ export default function Home() {
             className="lg:col-span-7 space-y-6 text-text-secondary text-base leading-relaxed"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <p>
@@ -243,7 +243,7 @@ export default function Home() {
                 className="group p-5 rounded-2xl bg-surface/40 border border-border/80 hover:border-primary/40 hover:shadow-[0_0_20px_rgba(124,58,237,0.1)] transition-all duration-300 flex flex-col space-y-3"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1, type: "spring", stiffness: 100 }}
                 whileHover={{ y: -5, scale: 1.02 }}
               >
@@ -268,7 +268,7 @@ export default function Home() {
           className="text-center space-y-3"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold text-secondary border border-secondary/20 bg-secondary/5">
@@ -290,7 +290,7 @@ export default function Home() {
               className="group p-6 rounded-2xl bg-surface/30 border border-border/60 hover:border-secondary/40 hover:shadow-[0_0_25px_rgba(6,182,212,0.08)] flex flex-col space-y-4 transition-colors duration-300"
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.08 }}
               whileHover={{ y: -6, scale: 1.02 }}
             >
@@ -323,7 +323,7 @@ export default function Home() {
           className="text-center space-y-3"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold text-primary border border-primary/20 bg-primary/5">
@@ -345,7 +345,7 @@ export default function Home() {
               className="group p-8 rounded-3xl bg-surface/20 border border-border/80 hover:border-primary/50 hover:shadow-[0_0_30px_rgba(124,58,237,0.1)] flex flex-col justify-between transition-colors duration-500"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.1, type: "spring", stiffness: 80 }}
               whileHover={{ y: -8, scale: 1.01 }}
             >
@@ -434,7 +434,7 @@ export default function Home() {
           className="text-center space-y-3"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold text-accent border border-accent/20 bg-accent/5">
@@ -454,7 +454,7 @@ export default function Home() {
               className="relative group"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: false, margin: "-100px" }}
+              viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: idx * 0.15 }}
             >
               
@@ -482,7 +482,7 @@ export default function Home() {
           className="text-center space-y-3"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           <h3 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
@@ -500,7 +500,7 @@ export default function Home() {
               className="p-6 rounded-2xl bg-surface/30 border border-border/80 hover:border-primary/40 flex items-start gap-4 transition-colors"
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.08 }}
               whileHover={{ y: -4, scale: 1.02 }}
             >
@@ -520,7 +520,7 @@ export default function Home() {
           className="p-8 rounded-3xl bg-surface/20 border border-border/80 space-y-6"
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6, type: "spring" }}
           whileHover={{ y: -4 }}
         >
@@ -546,7 +546,7 @@ export default function Home() {
           className="p-8 rounded-3xl bg-surface/20 border border-border/80 space-y-6"
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6, type: "spring" }}
           whileHover={{ y: -4 }}
         >
@@ -571,7 +571,7 @@ export default function Home() {
           className="text-center space-y-3"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold text-primary border border-primary/20 bg-primary/5">
@@ -592,7 +592,7 @@ export default function Home() {
             className="lg:col-span-5 space-y-8 flex flex-col justify-between"
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="space-y-6">
@@ -655,7 +655,7 @@ export default function Home() {
             className="lg:col-span-7 p-8 rounded-3xl bg-surface/30 border border-border/80 backdrop-blur-md"
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
