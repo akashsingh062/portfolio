@@ -2,44 +2,38 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Laptop, ArrowUpRight, Github, CheckCircle2 } from "lucide-react";
-import { RainbowButton } from "@/components/ui/rainbow-button";
-import { Meteors } from "@/components/ui/meteors";
 import { motion } from "motion/react";
+import { Laptop, ArrowUpRight, CheckCircle2, Github } from "lucide-react";
+import { RainbowButton } from "@/components/ui/rainbow-button";
 import { projects } from "@/lib/data";
 
-export default function ProjectsPage() {
-
+export default function Projects() {
   return (
-    <main className="flex-grow flex flex-col items-center justify-start p-6 md:p-24 space-y-16 md:space-y-24 overflow-hidden min-h-screen pb-32">
-      
-      <Meteors number={25} />
-
-      
-      <motion.section 
-        className="w-full max-w-6xl space-y-6 mt-8 md:mt-12 text-center md:text-left"
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+    <section id="projects" className="w-full max-w-6xl space-y-12">
+      <motion.div 
+        className="text-center space-y-3"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
       >
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold text-primary border border-primary/20 bg-primary/5">
           <Laptop className="h-3 w-3" />
           <span>Projects</span>
         </div>
-        <h1 className="text-4xl md:text-6xl font-black bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent pb-1 leading-tight">
+        <h3 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
           Featured Work
-        </h1>
-        <p className="text-text-secondary max-w-2xl text-base leading-relaxed">
-          Here are my best projects — from full-stack SaaS platforms to AI-powered tools. Each one was built to solve a real problem and push my engineering skills further.
+        </h3>
+        <p className="text-text-secondary max-w-2xl mx-auto text-sm">
+          Here are some of the projects I’ve built while exploring full-stack web development. Each project helped me strengthen different areas from UI engineering to database architecture.
         </p>
-      </motion.section>
+      </motion.div>
 
-      
-      <section className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {projects.map((project, idx) => (
           <motion.div 
             key={idx}
-            className="group p-6 rounded-3xl bg-surface/20 border border-border/80 hover:border-primary/50 hover:shadow-[0_0_30px_rgba(124,58,237,0.1)] flex flex-col justify-between transition-colors duration-500"
+            className="group p-8 rounded-3xl bg-surface/20 border border-border/80 hover:border-primary/50 hover:shadow-[0_0_30px_rgba(124,58,237,0.1)] flex flex-col justify-between transition-colors duration-500"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -48,7 +42,7 @@ export default function ProjectsPage() {
           >
             <div className="space-y-5">
               
-              <div className="relative w-full h-52 rounded-2xl overflow-hidden border border-border/40 group-hover:border-primary/30 transition-colors">
+              <div className="relative w-full h-48 rounded-2xl overflow-hidden border border-border/40 group-hover:border-primary/30 transition-colors">
                 <Image
                   src={project.image}
                   alt={project.title}
@@ -61,9 +55,9 @@ export default function ProjectsPage() {
               </div>
 
               <div className="flex items-center justify-between">
-                <h2 className="text-2xl font-bold text-text-primary group-hover:text-primary transition-colors">
+                <h4 className="text-2xl font-bold text-text-primary group-hover:text-primary transition-colors">
                   {project.title}
-                </h2>
+                </h4>
                 <a 
                   href={project.github} 
                   target="_blank" 
@@ -78,7 +72,6 @@ export default function ProjectsPage() {
                 {project.description}
               </p>
 
-              
               <div className="space-y-2">
                 <span className="text-xs font-bold text-text-primary uppercase tracking-wider block">Key Features</span>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs text-text-secondary">
@@ -104,10 +97,9 @@ export default function ProjectsPage() {
                 ))}
               </div>
 
-              
               <div className="flex items-center gap-4 mt-6">
                 <RainbowButton asChild size="sm" className="font-semibold">
-                  <Link href={project.demo}>Live Demo</Link>
+                  <Link target="_blank" href={project.demo}>Live Demo</Link>
                 </RainbowButton>
                 <a 
                   href={project.github}
@@ -122,7 +114,7 @@ export default function ProjectsPage() {
             </div>
           </motion.div>
         ))}
-      </section>
-    </main>
+      </div>
+    </section>
   );
 }

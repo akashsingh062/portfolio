@@ -1,12 +1,21 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, MapPin, Github, Linkedin, MessageSquare, Phone, CheckCircle2, XCircle, Loader2 } from "lucide-react";
-import { RainbowButton } from "@/components/ui/rainbow-button";
-import { Meteors } from "@/components/ui/meteors";
 import { motion } from "motion/react";
+import { 
+  Mail, 
+  MapPin, 
+  Github, 
+  Linkedin, 
+  Phone, 
+  Loader2, 
+  MessageSquare, 
+  CheckCircle2, 
+  XCircle 
+} from "lucide-react";
+import { RainbowButton } from "@/components/ui/rainbow-button";
 
-export default function ContactPage() {
+export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
@@ -45,47 +54,43 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="flex-grow flex flex-col items-center justify-start p-6 md:p-24 space-y-16 md:space-y-24 overflow-hidden min-h-screen pb-32">
-      
-      <Meteors number={20} />
-
-      
-      <motion.section 
-        className="w-full max-w-6xl space-y-6 mt-8 md:mt-12 text-center md:text-left"
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+    <section id="contact" className="w-full max-w-6xl space-y-12">
+      <motion.div 
+        className="text-center space-y-3"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
       >
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold text-primary border border-primary/20 bg-primary/5">
           <Mail className="h-3 w-3" />
           <span>Contact</span>
         </div>
-        <h1 className="text-4xl md:text-6xl font-black text-primary pb-1 leading-tight">
+        <h3 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
           Let’s Build Something Together
-        </h1>
-        <p className="text-text-secondary max-w-2xl text-base leading-relaxed">
-          I’m always open to discussing projects, collaboration opportunities, internships, or simply connecting with fellow developers.
+        </h3>
+        <p className="text-text-secondary max-w-xl mx-auto text-sm">
+          I’m always open to discussing new full-stack projects, collaboration opportunities, developer internships, or simply talking code.
         </p>
-      </motion.section>
+      </motion.div>
 
-      
-      <section className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-12 gap-12">
-        
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        {/* Left column: Contact Info */}
         <motion.div 
           className="lg:col-span-5 space-y-8 flex flex-col justify-between"
           initial={{ opacity: 0, x: -40 }}
-          animate={{ opacity: 1, x: 0 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-text-primary">Get In Touch</h2>
+            <h4 className="text-xl font-bold text-text-primary">Get In Touch</h4>
             <p className="text-sm text-text-secondary leading-relaxed">
               Whether you have an interesting product idea, an engineering role, or just want to swap ideas—drop me a note!
             </p>
           </div>
 
           <div className="space-y-5">
-            
             <motion.div 
               className="flex items-center gap-4 p-4 rounded-xl bg-surface/30 border border-border/60 hover:border-primary/40 transition-colors"
               whileHover={{ x: 6, scale: 1.01 }}
@@ -123,7 +128,6 @@ export default function ContactPage() {
             </motion.div>
           </div>
 
-          
           <div className="flex items-center gap-3 pt-6 border-t border-border/60">
             <a 
               href="https://github.com/akashsingh062" 
@@ -144,23 +148,21 @@ export default function ContactPage() {
           </div>
         </motion.div>
 
-        
+        {/* Right column: Interactive form */}
         <motion.div 
           className="lg:col-span-7 p-8 rounded-3xl bg-surface/30 border border-border/80 backdrop-blur-md"
           initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <form 
-            className="space-y-6" 
-            onSubmit={handleSubmit}
-          >
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <label htmlFor="name" className="text-xs font-bold text-text-primary uppercase tracking-wider">Full Name</label>
                 <input 
                   type="text" 
-                  id="name"
+                  id="name" 
                   name="name"
                   required
                   className="w-full px-4 py-3 rounded-xl bg-background/80 border border-border/80 text-text-primary placeholder:text-text-secondary/50 focus:outline-none focus:border-primary/50 transition-colors" 
@@ -221,7 +223,6 @@ export default function ContactPage() {
                 </span>
               </RainbowButton>
 
-              
               {submitStatus === "success" && (
                 <motion.div 
                   initial={{ opacity: 0, y: 10 }}
@@ -245,7 +246,7 @@ export default function ContactPage() {
             </div>
           </form>
         </motion.div>
-      </section>
-    </main>
+      </div>
+    </section>
   );
 }
