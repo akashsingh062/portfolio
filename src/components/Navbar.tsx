@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { Home, User, Briefcase, Mail, Sun, Moon } from "lucide-react";
@@ -11,6 +11,10 @@ export default function Navbar() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
+  const [isVisible, setIsVisible] = useState(true);
+
+  const lastScrollY = useRef(0);
+  const isScrollingToSection = useRef(false);
 
   const links = [
     { name: "Home", hash: "hero", path: "/#hero", icon: Home },
@@ -21,6 +25,9 @@ export default function Navbar() {
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
     e.preventDefault();
+    isScrollingToSection.current = true;
+    setIsVisible(true);
+
     if (hash === "hero") {
       window.scrollTo({ top: 0, behavior: "smooth" });
       window.history.pushState(null, "", "/");
@@ -33,6 +40,10 @@ export default function Navbar() {
         setActiveSection(hash);
       }
     }
+
+    setTimeout(() => {
+      isScrollingToSection.current = false;
+    }, 800);
   };
 
   useEffect(() => {
@@ -66,14 +77,29 @@ export default function Navbar() {
     });
 
     const handleScroll = () => {
-      if (window.scrollY === 0) {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY <= 0) {
         setActiveSection("hero");
+        setIsVisible(true);
       } else if (
-        window.innerHeight + window.scrollY >=
+        window.innerHeight + currentScrollY >=
         document.documentElement.scrollHeight - 20
       ) {
         setActiveSection("contact");
+        setIsVisible(true);
+      } else {
+        const scrollDifference = currentScrollY - lastScrollY.current;
+        if (!isScrollingToSection.current && Math.abs(scrollDifference) > 10) {
+          if (scrollDifference > 0) {
+            setIsVisible(false);
+          } else {
+            setIsVisible(true);
+          }
+        }
       }
+
+      lastScrollY.current = currentScrollY;
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -95,12 +121,16 @@ export default function Navbar() {
       <motion.div
         className="fixed bottom-6 left-1/2 z-50"
         initial={{ y: 100, x: "-50%", opacity: 0 }}
-        animate={{ y: 0, x: "-50%", opacity: 1 }}
+        animate={{ 
+          y: isVisible ? 0 : 100, 
+          x: "-50%", 
+          opacity: isVisible ? 1 : 0 
+        }}
         transition={{
           type: "spring",
-          stiffness: 120,
-          damping: 16,
-          delay: 0.3,
+          stiffness: 260,
+          damping: 26,
+          delay: mounted ? 0 : 0.3,
         }}
       >
         <Dock 
