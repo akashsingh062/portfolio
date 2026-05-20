@@ -76,11 +76,9 @@ export const PixelImage = ({
     }
   }, [colorRevealDelay])
 
-  const [pieces, setPieces] = useState<Array<{clipPath: string, delay: number}>>([])
-
-  useEffect(() => {
+  const pieces = useMemo(() => {
     const total = rows * cols
-    const newPieces = Array.from({ length: total }, (_, index) => {
+    return Array.from({ length: total }, (_, index) => {
       const row = Math.floor(index / cols)
       const col = index % cols
 
@@ -91,50 +89,57 @@ export const PixelImage = ({
         ${col * (100 / cols)}% ${(row + 1) * (100 / rows)}%
       )`
 
-      const delay = Math.random() * maxAnimationDelay
+      // Pure deterministic pseudo-random delay based on index seed
+      const rand = Math.abs(Math.sin(index + 1) * 10000) % 1
+      const delay = rand * maxAnimationDelay
       return {
         clipPath,
         delay,
       }
     })
-    
-    setPieces(newPieces)
   }, [rows, cols, maxAnimationDelay])
 
   return (
     <div className="relative h-72 w-72 select-none md:h-96 md:w-96">
-      {pieces.map((piece, index) => (
-        <div
-          key={index}
-          className={cn(
-            "absolute inset-0 transition-all ease-out",
-            isVisible ? "opacity-100" : "opacity-0"
-          )}
-          style={{
-            clipPath: piece.clipPath,
-            transitionDelay: `${piece.delay}ms`,
-            transitionDuration: `${pixelFadeInDuration}ms`,
-          }}
-        >
-          <Image
-            src={src}
-            alt={`Pixel image piece ${index + 1}`}
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            priority
+      {showColor ? (
+        <Image
+          src={src}
+          alt="Avatar"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          priority
+          className="z-2 rounded-[2.5rem] object-cover transition-all grayscale-0 duration-500 ease-out"
+          draggable={false}
+        />
+      ) : (
+        pieces.map((piece, index) => (
+          <div
+            key={index}
             className={cn(
-              "z-1 rounded-[2.5rem] object-cover",
-              grayscaleAnimation && (showColor ? "grayscale-0" : "grayscale")
+              "absolute inset-0 transition-all ease-out",
+              isVisible ? "opacity-100" : "opacity-0"
             )}
             style={{
-              transition: grayscaleAnimation
-                ? `filter ${pixelFadeInDuration}ms cubic-bezier(0.4, 0, 0.2, 1)`
-                : "none",
+              clipPath: piece.clipPath,
+              transitionDelay: `${piece.delay}ms`,
+              transitionDuration: `${pixelFadeInDuration}ms`,
             }}
-            draggable={false}
-          />
-        </div>
-      ))}
+          >
+            <Image
+              src={src}
+              alt={`Pixel image piece ${index + 1}`}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              priority
+              className={cn(
+                "z-1 rounded-[2.5rem] object-cover",
+                grayscaleAnimation && "grayscale"
+              )}
+              draggable={false}
+            />
+          </div>
+        ))
+      )}
     </div>
   )
 }

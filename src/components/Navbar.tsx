@@ -36,8 +36,13 @@ export default function Navbar() {
   };
 
   useEffect(() => {
-    setMounted(true);
+    const timer = setTimeout(() => {
+      setMounted(true);
+    }, 0);
+    return () => clearTimeout(timer);
+  }, []);
 
+  useEffect(() => {
     const observerOptions = {
       root: null,
       rootMargin: "-30% 0px -30% 0px",
@@ -73,12 +78,15 @@ export default function Navbar() {
 
     window.addEventListener("scroll", handleScroll);
 
-    // Initial check
-    handleScroll();
+    // Initial check deferred out of synchronous render thread
+    const scrollTimer = setTimeout(() => {
+      handleScroll();
+    }, 0);
 
     return () => {
       observer.disconnect();
       window.removeEventListener("scroll", handleScroll);
+      clearTimeout(scrollTimer);
     };
   }, []);
 
