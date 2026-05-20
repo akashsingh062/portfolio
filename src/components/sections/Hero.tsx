@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { PixelImage } from "@/components/ui/pixel-image";
-import { TextAnimate } from "@/components/ui/text-animate";
 import { Backlight } from "@/components/ui/backlight";
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import { ArrowRight, Sparkles, Terminal, FileText, Github } from "lucide-react";
