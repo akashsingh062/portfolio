@@ -119,7 +119,7 @@ export default function Hero() {
           </RainbowButton>
 
           <a
-            href="/resume.pdf"
+            href="/Resume.pdf"
             download
             className="px-5 py-2.5 rounded-xl text-sm font-semibold text-text-secondary hover:text-text-primary bg-surface/40 hover:bg-surface border border-border hover:border-primary/50 transition-all duration-300 flex items-center gap-2"
           >
