@@ -91,12 +91,12 @@ export const projects = [
     github: "https://github.com/akashsingh062/Prescripto-My-Doctor"
   },
   {
-    title: "Link-Tree — Bio Links",
+    title: "Linkify — Personal Link Tree",
     description: "A personal link tree application that aggregates all social profiles and important links into a single beautiful, shareable page with a glassmorphism design.",
     features: ["Custom profile page", "Social link aggregation", "Glassmorphism UI", "Mobile responsive", "One-click sharing"],
     techs: ["JavaScript", "Node.js", "Express.js", "CSS"],
     image: "/projects/linktree.png",
-    demo: "https://link-tree-rho-dun.vercel.app/",
+    demo: "https://linkify-ak.vercel.app/",
     github: "https://github.com/akashsingh062/link-tree"
   },
   {
