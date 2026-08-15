@@ -1,19 +1,20 @@
 import { 
   Code, 
   Cpu, 
-  Binary, 
   Wrench, 
   Database,
   GraduationCap,
   Laptop,
   BookOpen,
-  Zap
+  Zap,
+  Radio,
+  ShieldCheck
 } from "lucide-react";
 
 export const stats = [
   { value: "30+", label: "GitHub Repositories", color: "from-primary to-steel-blue-600" },
   { value: "2+ Years", label: "Building Web Apps", color: "from-brick-red-600 to-accent" },
-  { value: "Full Stack", label: "Frontend + Backend + AI", color: "from-molten-lava-600 to-secondary" }
+  { value: "Full Stack", label: "Frontend + Backend + Real-Time", color: "from-molten-lava-600 to-secondary" }
 ];
 
 export const quickInfos = [
@@ -31,14 +32,14 @@ export const quickInfos = [
   },
   {
     icon: BookOpen,
-    title: "Current Learning",
-    desc: "Next.js, TypeScript, AI Integration",
+    title: "Current Focus",
+    desc: "Next.js 16, React 19, Socket.IO & Cloud Architecture",
     color: "text-accent border-accent/20 bg-accent/5"
   },
   {
     icon: Zap,
     title: "Interests",
-    desc: "SaaS Products, AI Apps, Open Source",
+    desc: "SaaS Products, Real-Time Apps, Open Source",
     color: "text-interest border-interest/20 bg-interest/5"
   }
 ];
@@ -46,32 +47,55 @@ export const quickInfos = [
 export const skillCategories = [
   {
     icon: Code,
-    title: "Frontend",
-    skills: ["HTML5", "CSS3", "JavaScript (ES6+)", "TypeScript", "React.js", "Next.js", "Tailwind CSS", "EJS Templates"]
+    title: "Frontend Development",
+    skills: ["React.js", "Next.js 16", "TypeScript", "JavaScript (ES6+)", "Tailwind CSS v4", "HTML5 & CSS3", "Framer Motion", "Zustand"]
   },
   {
     icon: Cpu,
-    title: "Backend",
-    skills: ["Node.js", "Express.js", "REST APIs", "Authentication (Clerk)", "CRUD Operations", "Server-side Rendering"]
+    title: "Backend & APIs",
+    skills: ["Node.js", "Express.js", "Next.js API Handlers", "RESTful APIs", "Server-Side Rendering (SSR)", "CRUD Architecture", "Middleware Guards"]
+  },
+  {
+    icon: Radio,
+    title: "Real-Time & Integrations",
+    skills: ["Socket.IO (WebSockets)", "Stripe Payments", "Leaflet & Maps API", "Cloudinary", "Nodemailer (OTP)", "Webhook Handlers"]
   },
   {
     icon: Database,
     title: "Database & Storage",
-    skills: ["MongoDB", "Mongoose", "Local Storage", "File Handling"]
+    skills: ["MongoDB", "Mongoose ODM", "Geospatial Queries (2dsphere)", "Aggregation Pipelines", "Local & Session Storage"]
   },
   {
-    icon: Binary,
-    title: "Programming & DSA",
-    skills: ["Java", "Data Structures", "Algorithms", "Problem Solving"]
+    icon: ShieldCheck,
+    title: "Auth & Security",
+    skills: ["Better Auth", "Clerk Auth", "Role-Based Access Control (RBAC)", "JWT & Session Cookies", "Protected Routes"]
   },
   {
     icon: Wrench,
-    title: "Tools & Platforms",
-    skills: ["Git", "GitHub", "VS Code", "Postman", "Vercel", "npm", "Bun", "Chrome DevTools"]
+    title: "Tools & DevOps",
+    skills: ["Git & GitHub", "Vercel", "Render", "Postman", "VS Code", "npm / Bun", "Chrome DevTools"]
   }
 ];
 
 export const projects = [
+  {
+    title: "SnapCart — Grocery Delivery",
+    description: "A production-grade, full-stack grocery delivery platform with dedicated Customer, Admin, and Delivery Partner portals, featuring real-time Socket.IO updates, live GPS tracking, in-app chat, and Stripe payments.",
+    features: ["3-Tier Multi-Role Portals", "Real-Time Socket.IO Live Tracking", "In-App Customer & Rider Chat", "Stripe & COD Payment Gateways", "OTP-Verified Secure Delivery"],
+    techs: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS", "MongoDB", "Socket.IO", "Stripe"],
+    image: "/projects/snapcart.png",
+    demo: "https://snapcart-d.vercel.app",
+    github: "https://github.com/akashsingh062/snapcart"
+  },
+  {
+    title: "Chai Charcha — Discussion Forum",
+    description: "A modern, community-driven discussion platform featuring community guilds, nested discussions, karma reputation voting, real-time direct messaging, and robust role-based moderation.",
+    features: ["Community Guilds & Feeds", "Nested Comments & Karma Voting", "Real-Time Direct Messaging", "Role-Based Access (Admin/Mod/Member)", "Audit Logs & Content Reporting"],
+    techs: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS", "MongoDB", "Better Auth"],
+    image: "/projects/chaicharcha.png",
+    demo: "https://chai-charcha.vercel.app",
+    github: "https://github.com/akashsingh062/Chai-Charcha"
+  },
   {
     title: "Eventra — Event Manager",
     description: "A full-stack event management platform where users can create, browse, and manage events with a calendar sidebar, attendee tracking, and venue management.",
@@ -147,7 +171,7 @@ export const journey = [
   {
     year: "2026",
     title: "Production-Grade Engineering",
-    desc: "Building with Next.js, TypeScript, Clerk Auth, and Tailwind CSS. Shipped ByteBlogs, Prescripto, Eventra, BG-Removal, Sort-Link, and this portfolio. 30+ repositories on GitHub and counting."
+    desc: "Building with Next.js 16, React 19, TypeScript, Socket.IO, Better Auth, and Tailwind CSS. Shipped SnapCart, Chai Charcha, Eventra, Prescripto, BG-Removal, Sort-Link, and this portfolio. 30+ repositories on GitHub and counting."
   }
 ];
 

@@ -29,10 +29,13 @@ const FunFacts = dynamic(() => import("@/components/sections/FunFacts"), {
 const Contact = dynamic(() => import("@/components/sections/Contact"), {
   ssr: false,
 });
+const Footer = dynamic(() => import("@/components/Footer"), {
+  ssr: false,
+});
 
 export default function Home() {
   return (
-    <main className="flex-grow flex flex-col items-center justify-start p-6 md:p-24 space-y-24 md:space-y-36 overflow-hidden animate-in fade-in duration-500 ease-out">
+    <main className="grow flex flex-col items-center justify-start p-6 md:p-24 space-y-24 md:space-y-36 overflow-hidden animate-in fade-in duration-500 ease-out">
       <Meteors number={30} />
       <Hero />
       <Stats />
@@ -43,6 +46,7 @@ export default function Home() {
       <WhyMe />
       <FunFacts />
       <Contact />
+      <Footer />
     </main>
   );
 }

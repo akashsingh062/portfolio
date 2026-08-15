@@ -18,7 +18,7 @@ export default function About() {
           <Sparkles className="h-3 w-3" />
           <span>About Me</span>
         </div>
-        <h3 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent pb-1">
+        <h3 className="text-3xl md:text-5xl font-bold bg-linear-to-r from-primary to-secondary bg-clip-text text-transparent pb-1">
           Passionate About Building Web Experiences That Matter
         </h3>
       </motion.div>
@@ -36,13 +36,16 @@ export default function About() {
             Hello! I’m <strong className="text-text-primary">Akash</strong>, a Computer Science student and aspiring full-stack web developer who loves turning concepts into highly interactive, responsive, and functional digital products.
           </p>
           <p>
-            My journey into web development started with simple HTML, CSS, and JavaScript, building utility calculators and responsive landing layouts. As my curiosity expanded, I ventured into backend development using <strong className="text-text-primary">Node.js and Express</strong> to construct secure APIs, manage files, and engineer complete CRUD databases.
+            My journey into web development started with core HTML, CSS, and JavaScript, building utility apps and responsive interfaces. As my curiosity expanded, I ventured into backend engineering with <strong className="text-text-primary">Node.js, Express, and MongoDB</strong> to construct robust REST APIs and database architectures.
+          </p>
+          <p>
+            Today, I specialize in building production-ready, full-stack web applications using <strong className="text-text-primary">Next.js 16, React 19, TypeScript, and Tailwind CSS</strong>, integrating real-time WebSockets (Socket.IO), payment gateways (Stripe), and secure authentication systems.
           </p>
           <p>
             Beyond development, I actively solve Data Structures and Algorithms in <strong className="text-text-primary">Java</strong> to strengthen my problem-solving systems and cement my understanding of core software engineering fundamentals.
           </p>
           <p>
-            I believe the most effective way to grow is by creating real, production-ready applications. That&apos;s why I&apos;m constantly learning, experimenting, and shipping new code.
+            I believe the most effective way to grow is by creating real, production-grade applications. That&apos;s why I&apos;m constantly learning, experimenting, and shipping new software.
           </p>
         </motion.div>
 
