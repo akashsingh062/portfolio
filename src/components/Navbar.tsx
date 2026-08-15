@@ -8,10 +8,18 @@ import { Dock, DockIcon } from "@/components/ui/dock";
 import { motion } from "motion/react";
 
 export default function Navbar() {
-  const { theme, setTheme } = useTheme();
+  const { theme, resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
   const [isVisible, setIsVisible] = useState(true);
+
+  const isDark = (resolvedTheme || theme) === "dark";
+
+  const toggleTheme = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setTheme(isDark ? "light" : "dark");
+  };
 
   const lastScrollY = useRef(0);
   const isScrollingToSection = useRef(false);
@@ -161,17 +169,19 @@ export default function Navbar() {
               </DockIcon>
             );
           })}
-          <DockIcon className="bg-black/10 dark:bg-white/10">
+          <DockIcon className="bg-black/5 dark:bg-white/10 hover:bg-primary/15 transition-colors">
             <button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              type="button"
+              onClick={toggleTheme}
               className="flex items-center justify-center w-full h-full text-text-secondary hover:text-text-primary transition-colors focus:outline-none cursor-pointer"
               aria-label="Toggle Theme"
+              suppressHydrationWarning
             >
               {mounted ? (
-                theme === "dark" ? (
-                  <Sun className="h-5 w-5 text-accent" />
+                isDark ? (
+                  <Sun className="h-5 w-5 text-accent transition-transform hover:rotate-45" />
                 ) : (
-                  <Moon className="h-5 w-5 text-primary" />
+                  <Moon className="h-5 w-5 text-primary transition-transform hover:-rotate-12" />
                 )
               ) : (
                 <span className="h-5 w-5 animate-pulse bg-text-secondary/20 rounded-full" />
