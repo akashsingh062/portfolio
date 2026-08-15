@@ -14,6 +14,7 @@ import {
   XCircle 
 } from "lucide-react";
 import { RainbowButton } from "@/components/ui/rainbow-button";
+import { FloatingCodeChip } from "@/components/ui/floating-code-chip";
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -25,8 +26,13 @@ export default function Contact() {
     setSubmitStatus("idle");
     
     const formData = new FormData(e.currentTarget);
-    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "8b656dc6-6c35-4427-bcfc-30d319a20a1f";
-    formData.append("access_key", accessKey); 
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+    if (!accessKey) {
+      setSubmitStatus("error");
+      setIsSubmitting(false);
+      return;
+    }
+    formData.append("access_key", accessKey);
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -48,29 +54,39 @@ export default function Contact() {
     } finally {
       setIsSubmitting(false);
       setTimeout(() => {
-        if (submitStatus !== "error") setSubmitStatus("idle");
+        setSubmitStatus((prev) => (prev === "success" ? "idle" : prev));
       }, 5000);
     }
   };
 
   return (
-    <section id="contact" className="w-full max-w-6xl space-y-12">
+    <section id="contact" className="w-full mt-10 max-w-6xl space-y-12 relative">
       <motion.div 
-        className="text-center space-y-3"
+        className="text-center space-y-3 relative"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold text-primary border border-primary/20 bg-primary/5">
-          <Mail className="h-3 w-3" />
+        <FloatingCodeChip
+          className="hidden md:inline-flex absolute -top-4 right-0"
+          rotate={2}
+          delay={0.3}
+          variant="terminal"
+        >
+          <span className="text-emerald-400">await</span>{" "}
+          <span className="text-white">connect(&apos;akash&apos;)</span>
+        </FloatingCodeChip>
+
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold text-primary border border-primary/25 bg-primary/10 shadow-[0_0_15px_rgba(255,42,84,0.15)]">
+          <Mail className="h-3.5 w-3.5" />
           <span>Contact</span>
         </div>
-        <h3 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-          Let’s Build Something Together
+        <h3 className="text-3xl md:text-5xl font-extrabold tracking-tight text-text-primary">
+          Let&apos;s Build Something <span className="bg-linear-to-r from-rose-600 via-orange-600 to-indigo-600 dark:from-[#ff2a54] dark:via-[#ff623e] dark:to-[#818cf8] bg-clip-text text-transparent">Together</span>
         </h3>
-        <p className="text-text-secondary max-w-xl mx-auto text-sm">
-          I’m always open to discussing new full-stack projects, collaboration opportunities, developer internships, or simply talking code.
+        <p className="text-text-secondary max-w-xl mx-auto text-sm sm:text-base font-normal">
+          I&apos;m always open to discussing new full-stack projects, collaboration opportunities, developer internships, or simply talking code.
         </p>
       </motion.div>
 
@@ -92,11 +108,13 @@ export default function Contact() {
 
           <div className="space-y-5">
             <motion.div 
-              className="flex items-center gap-4 p-4 rounded-xl bg-surface/30 border border-border/60 hover:border-primary/40 transition-colors"
+              className="glass-card flex items-center gap-4 p-4 rounded-xl hover:border-primary/40 transition-colors"
               whileHover={{ x: 6, scale: 1.01 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              <Mail className="h-5 w-5 text-primary shrink-0" />
+              <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                <Mail className="h-5 w-5 text-primary" />
+              </div>
               <div>
                 <span className="text-xs font-semibold text-text-secondary block">Email</span>
                 <a href="mailto:akashsingh062.in@gmail.com" className="text-sm font-bold text-text-primary hover:text-primary transition-colors">akashsingh062.in@gmail.com</a>
@@ -104,11 +122,13 @@ export default function Contact() {
             </motion.div>
 
             <motion.div 
-              className="flex items-center gap-4 p-4 rounded-xl bg-surface/30 border border-border/60 hover:border-accent/40 transition-colors"
+              className="glass-card flex items-center gap-4 p-4 rounded-xl hover:border-accent/40 transition-colors"
               whileHover={{ x: 6, scale: 1.01 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              <Phone className="h-5 w-5 text-accent shrink-0" />
+              <div className="h-10 w-10 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
+                <Phone className="h-5 w-5 text-accent" />
+              </div>
               <div>
                 <span className="text-xs font-semibold text-text-secondary block">Phone</span>
                 <a href="tel:+917880952150" className="text-sm font-bold text-text-primary hover:text-accent transition-colors">+91 7880952150</a>
@@ -116,11 +136,13 @@ export default function Contact() {
             </motion.div>
 
             <motion.div 
-              className="flex items-center gap-4 p-4 rounded-xl bg-surface/30 border border-border/60 hover:border-secondary/40 transition-colors"
+              className="glass-card flex items-center gap-4 p-4 rounded-xl hover:border-secondary/40 transition-colors"
               whileHover={{ x: 6, scale: 1.01 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              <MapPin className="h-5 w-5 text-secondary shrink-0" />
+              <div className="h-10 w-10 rounded-xl bg-secondary/10 flex items-center justify-center shrink-0">
+                <MapPin className="h-5 w-5 text-secondary" />
+              </div>
               <div>
                 <span className="text-xs font-semibold text-text-secondary block">Location</span>
                 <span className="text-sm font-bold text-text-primary">India</span>
@@ -128,12 +150,12 @@ export default function Contact() {
             </motion.div>
           </div>
 
-          <div className="flex items-center gap-3 pt-6 border-t border-border/60">
+          <div className="flex items-center gap-3 pt-6 border-t border-border/40">
             <a 
               href="https://github.com/akashsingh062" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="h-10 w-10 rounded-xl bg-surface/40 hover:bg-surface border border-border hover:border-primary/50 text-text-secondary hover:text-text-primary flex items-center justify-center transition-all duration-300"
+              className="h-10 w-10 rounded-xl glass-card hover:border-primary/50 text-text-secondary hover:text-text-primary flex items-center justify-center transition-all duration-300 hover:shadow-[0_0_15px_rgba(193,18,31,0.15)]"
             >
               <Github className="h-5 w-5" />
             </a>
@@ -141,7 +163,7 @@ export default function Contact() {
               href="https://linkedin.com/in/akashsingh062" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="h-10 w-10 rounded-xl bg-surface/40 hover:bg-surface border border-border hover:border-secondary/50 text-text-secondary hover:text-text-primary flex items-center justify-center transition-all duration-300"
+              className="h-10 w-10 rounded-xl glass-card hover:border-secondary/50 text-text-secondary hover:text-text-primary flex items-center justify-center transition-all duration-300 hover:shadow-[0_0_15px_rgba(102,155,188,0.2)]"
             >
               <Linkedin className="h-5 w-5" />
             </a>
@@ -150,13 +172,24 @@ export default function Contact() {
 
         {/* Right column: Interactive form */}
         <motion.div 
-          className="lg:col-span-7 p-8 rounded-3xl bg-surface/30 border border-border/80 backdrop-blur-md"
+          className="lg:col-span-7 glass-card p-8 rounded-3xl relative overflow-hidden"
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <form className="space-y-6" onSubmit={handleSubmit}>
+          {/* Top accent line */}
+          <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-primary via-secondary to-primary/20 opacity-60" />
+          
+          <div className="flex items-center justify-between pb-2">
+            <span className="text-xs font-bold text-text-primary uppercase tracking-wider">Send a Message</span>
+            <FloatingCodeChip rotate={-1.5} delay={0.4} variant="success">
+              <span className="text-emerald-400 font-semibold">⚡ socket:</span>{" "}
+              <span className="text-text-primary">ready</span>
+            </FloatingCodeChip>
+          </div>
+
+          <form className="space-y-6" onSubmit={handleSubmit} suppressHydrationWarning>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <label htmlFor="name" className="text-xs font-bold text-text-primary uppercase tracking-wider">Full Name</label>
@@ -165,8 +198,9 @@ export default function Contact() {
                   id="name" 
                   name="name"
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-background/80 border border-border/80 text-text-primary placeholder:text-text-secondary/50 focus:outline-none focus:border-primary/50 transition-colors" 
-                  placeholder="Akash Singh"
+                  suppressHydrationWarning
+                  className="w-full px-4 py-3 rounded-xl bg-background/80 border border-border/80 text-text-primary placeholder:text-text-secondary/50 focus:outline-none focus:border-primary/50 focus:shadow-[0_0_0_3px_rgba(193,18,31,0.08)] transition-all duration-300" 
+                  placeholder="Your Name"
                 />
               </div>
               <div className="space-y-2">
@@ -176,7 +210,8 @@ export default function Contact() {
                   id="email" 
                   name="email"
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-background/80 border border-border/80 text-text-primary placeholder:text-text-secondary/50 focus:outline-none focus:border-primary/50 transition-colors" 
+                  suppressHydrationWarning
+                  className="w-full px-4 py-3 rounded-xl bg-background/80 border border-border/80 text-text-primary placeholder:text-text-secondary/50 focus:outline-none focus:border-primary/50 focus:shadow-[0_0_0_3px_rgba(193,18,31,0.08)] transition-all duration-300" 
                   placeholder="yourname@example.com"
                 />
               </div>
@@ -189,7 +224,8 @@ export default function Contact() {
                 id="subject" 
                 name="subject"
                 required
-                className="w-full px-4 py-3 rounded-xl bg-background/80 border border-border/80 text-text-primary placeholder:text-text-secondary/50 focus:outline-none focus:border-primary/50 transition-colors" 
+                suppressHydrationWarning
+                className="w-full px-4 py-3 rounded-xl bg-background/80 border border-border/80 text-text-primary placeholder:text-text-secondary/50 focus:outline-none focus:border-primary/50 focus:shadow-[0_0_0_3px_rgba(193,18,31,0.08)] transition-all duration-300" 
                 placeholder="Collaboration details"
               />
             </div>
@@ -200,8 +236,9 @@ export default function Contact() {
                 id="message" 
                 name="message"
                 required
+                suppressHydrationWarning
                 rows={5}
-                className="w-full px-4 py-3 rounded-xl bg-background/80 border border-border/80 text-text-primary placeholder:text-text-secondary/50 focus:outline-none focus:border-primary/50 transition-colors resize-none" 
+                className="w-full px-4 py-3 rounded-xl bg-background/80 border border-border/80 text-text-primary placeholder:text-text-secondary/50 focus:outline-none focus:border-primary/50 focus:shadow-[0_0_0_3px_rgba(193,18,31,0.08)] transition-all duration-300 resize-none" 
                 placeholder="Hello Akash, let's discuss..."
               />
             </div>
@@ -230,7 +267,7 @@ export default function Contact() {
                   className="flex items-center gap-2 text-green-500 font-semibold text-sm"
                 >
                   <CheckCircle2 className="h-4 w-4" />
-                  <span>Message sent successfully! I'll get back to you soon.</span>
+                  <span>Message sent successfully! I&apos;ll get back to you soon.</span>
                 </motion.div>
               )}
               {submitStatus === "error" && (

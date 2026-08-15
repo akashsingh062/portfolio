@@ -24,37 +24,42 @@ interface PixelImageProps {
   grid?: PredefinedGridKey
   customGrid?: Grid
   grayscaleAnimation?: boolean
-  pixelFadeInDuration?: number 
-  maxAnimationDelay?: number 
-  colorRevealDelay?: number 
+  pixelFadeInDuration?: number
+  maxAnimationDelay?: number
+  colorRevealDelay?: number
+  className?: string
+  imageClassName?: string
 }
 
 export const PixelImage = ({
   src,
   grid = "6x4",
   grayscaleAnimation = true,
-  pixelFadeInDuration = 1000,
-  maxAnimationDelay = 1200,
-  colorRevealDelay = 1300,
+  pixelFadeInDuration = 800,
+  maxAnimationDelay = 1000,
+  colorRevealDelay = 1200,
   customGrid,
+  className,
+  imageClassName,
 }: PixelImageProps) => {
   const [isVisible, setIsVisible] = useState(false)
   const [showColor, setShowColor] = useState(false)
+  const [isFinished, setIsFinished] = useState(false)
 
   const MIN_GRID = 1
   const MAX_GRID = 16
 
   const { rows, cols } = useMemo(() => {
-    const isValidGrid = (grid?: Grid) => {
-      if (!grid) return false
-      const { rows, cols } = grid
+    const isValidGrid = (g?: Grid) => {
+      if (!g) return false
+      const { rows: r, cols: c } = g
       return (
-        Number.isInteger(rows) &&
-        Number.isInteger(cols) &&
-        rows >= MIN_GRID &&
-        cols >= MIN_GRID &&
-        rows <= MAX_GRID &&
-        cols <= MAX_GRID
+        Number.isInteger(r) &&
+        Number.isInteger(c) &&
+        r >= MIN_GRID &&
+        c >= MIN_GRID &&
+        r <= MAX_GRID &&
+        c <= MAX_GRID
       )
     }
 
@@ -65,16 +70,21 @@ export const PixelImage = ({
     const visibilityTimeout = setTimeout(() => {
       setIsVisible(true)
     }, 50)
-    
+
     const colorTimeout = setTimeout(() => {
       setShowColor(true)
     }, colorRevealDelay)
-    
+
+    const finishTimeout = setTimeout(() => {
+      setIsFinished(true)
+    }, colorRevealDelay + pixelFadeInDuration)
+
     return () => {
       clearTimeout(visibilityTimeout)
       clearTimeout(colorTimeout)
+      clearTimeout(finishTimeout)
     }
-  }, [colorRevealDelay])
+  }, [colorRevealDelay, pixelFadeInDuration])
 
   const pieces = useMemo(() => {
     const total = rows * cols
@@ -100,45 +110,40 @@ export const PixelImage = ({
   }, [rows, cols, maxAnimationDelay])
 
   return (
-    <div className="relative h-72 w-72 select-none md:h-96 md:w-96">
-      {showColor ? (
-        <Image
-          src={src}
-          alt="Avatar"
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          priority
-          className="z-2 rounded-[2.5rem] object-cover transition-all grayscale-0 duration-500 ease-out"
-          draggable={false}
-        />
-      ) : (
-        pieces.map((piece, index) => (
-          <div
-            key={index}
-            className={cn(
-              "absolute inset-0 transition-all ease-out",
-              isVisible ? "opacity-100" : "opacity-0"
-            )}
-            style={{
-              clipPath: piece.clipPath,
-              transitionDelay: `${piece.delay}ms`,
-              transitionDuration: `${pixelFadeInDuration}ms`,
-            }}
-          >
-            <Image
-              src={src}
-              alt={`Pixel image piece ${index + 1}`}
-              fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              priority
+    <div className={cn("relative h-72 w-72 select-none md:h-96 md:w-96 overflow-hidden rounded-[2.5rem] bg-[#070a10]", className)}>
+      {/* Single, highly-optimized base image */}
+      <Image
+        src={src}
+        alt="Akash Singh — Full Stack Developer"
+        fill
+        sizes="(max-width: 768px) 288px, 384px"
+        priority
+        className={cn(
+          "rounded-[2.5rem] object-cover object-top transition-all duration-700 ease-out",
+          imageClassName,
+          !showColor && grayscaleAnimation ? "grayscale contrast-125" : "grayscale-0 contrast-100"
+        )}
+        draggable={false}
+      />
+
+      {/* Lightweight tile reveal overlay (unmounted after animation completes) */}
+      {!isFinished && (
+        <div className="absolute inset-0 pointer-events-none z-10">
+          {pieces.map((piece, index) => (
+            <div
+              key={index}
               className={cn(
-                "z-1 rounded-[2.5rem] object-cover",
-                grayscaleAnimation && "grayscale"
+                "absolute inset-0 bg-background/95 dark:bg-[#0c1017]/95 transition-opacity ease-out",
+                isVisible ? "opacity-0" : "opacity-100"
               )}
-              draggable={false}
+              style={{
+                clipPath: piece.clipPath,
+                transitionDelay: `${piece.delay}ms`,
+                transitionDuration: `${pixelFadeInDuration}ms`,
+              }}
             />
-          </div>
-        ))
+          ))}
+        </div>
       )}
     </div>
   )

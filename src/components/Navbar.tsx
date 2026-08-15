@@ -76,33 +76,40 @@ export default function Navbar() {
       if (el) observer.observe(el);
     });
 
+    let ticking = false;
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
 
-      if (currentScrollY <= 0) {
-        setActiveSection("hero");
-        setIsVisible(true);
-      } else if (
-        window.innerHeight + currentScrollY >=
-        document.documentElement.scrollHeight - 20
-      ) {
-        setActiveSection("contact");
-        setIsVisible(true);
-      } else {
-        const scrollDifference = currentScrollY - lastScrollY.current;
-        if (!isScrollingToSection.current && Math.abs(scrollDifference) > 10) {
-          if (scrollDifference > 0) {
-            setIsVisible(false);
-          } else {
+          if (currentScrollY <= 0) {
+            setActiveSection("hero");
             setIsVisible(true);
+          } else if (
+            window.innerHeight + currentScrollY >=
+            document.documentElement.scrollHeight - 20
+          ) {
+            setActiveSection("contact");
+            setIsVisible(true);
+          } else {
+            const scrollDifference = currentScrollY - lastScrollY.current;
+            if (!isScrollingToSection.current && Math.abs(scrollDifference) > 10) {
+              if (scrollDifference > 0) {
+                setIsVisible(false);
+              } else {
+                setIsVisible(true);
+              }
+            }
           }
-        }
-      }
 
-      lastScrollY.current = currentScrollY;
+          lastScrollY.current = currentScrollY;
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     // Initial check deferred out of synchronous render thread
     const scrollTimer = setTimeout(() => {
@@ -137,19 +144,19 @@ export default function Navbar() {
           iconMagnification={60} 
           iconDistance={100} 
           direction="middle" 
-          className="bg-surface/80 backdrop-blur-md border-border shadow-[0_0_15px_rgba(124,58,237,0.3)]"
+          className="bg-white/80 dark:bg-[#0d131f]/80 backdrop-blur-xl border-border/80 dark:border-white/10 shadow-[0_10px_35px_rgba(0,0,0,0.2),0_0_25px_rgba(255,42,84,0.15)] dark:shadow-[0_10px_35px_rgba(0,0,0,0.6),0_0_30px_rgba(255,42,84,0.2)]"
         >
           {links.map((link) => {
             const isActive = activeSection === link.hash;
             return (
-              <DockIcon key={link.name} className="bg-black/10 dark:bg-white/10">
+              <DockIcon key={link.name} className="bg-black/5 dark:bg-white/10 hover:bg-primary/15 transition-colors">
                 <Link 
                   href={link.path} 
                   onClick={(e) => handleClick(e, link.hash)}
                   className="flex items-center justify-center w-full h-full group" 
                   aria-label={link.name}
                 >
-                  <link.icon className={`h-5 w-5 transition-colors ${isActive ? "text-primary" : "text-text-secondary group-hover:text-text-primary"}`} />
+                  <link.icon className={`h-5 w-5 transition-all duration-300 ${isActive ? "text-primary scale-110 drop-shadow-[0_0_8px_rgba(255,42,84,0.6)]" : "text-text-secondary group-hover:text-text-primary"}`} />
                 </Link>
               </DockIcon>
             );
