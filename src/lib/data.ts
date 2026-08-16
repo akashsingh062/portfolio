@@ -13,7 +13,7 @@ import {
 
 export const stats = [
   { value: "30+", label: "GitHub Repositories", color: "from-[#ff2a54] via-[#ff623e] to-[#f59e0b]" },
-  { value: "2+ Years", label: "Building Web Apps", color: "from-[#ff623e] via-[#f59e0b] to-[#10b981]" },
+  { value: "1+ Years", label: "Building Web Apps", color: "from-[#ff623e] via-[#f59e0b] to-[#10b981]" },
   { value: "Full Stack", label: "Frontend + Backend + Real-Time", color: "from-[#818cf8] via-[#6366f1] to-[#38bdf8]" }
 ];
 
